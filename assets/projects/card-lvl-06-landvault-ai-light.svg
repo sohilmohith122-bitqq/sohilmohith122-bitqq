@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270">
+  <title>LANDVAULT-AI - LVL 06</title>
+  <desc>Multilingual land deed digitization and GIS parcel verification</desc>
+
+  <style>
+    
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace; }
+    .bold { font-weight: 700; }
+    
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes pulseNode {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
+    .cursor-blink {
+      animation: blink 1s infinite step-start;
+    }
+    .node-pulse {
+      animation: pulseNode 3s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor-blink, .node-pulse, * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  
+    .card-title { font-size: 15px; font-weight: 700; fill: #1f2328; letter-spacing: 0.5px; }
+    .card-desc { font-size: 11px; fill: #656d76; }
+    .card-link { font-size: 11px; font-weight: 700; fill: #4b7f00; }
+    .category-label { font-size: 9px; font-weight: 700; fill: #656d76; letter-spacing: 1px; }
+  </style>
+
+  <a href="https://github.com/sohilmohith122-bitqq/LANDVAULT-AI" target="_blank" rel="noopener noreferrer">
+    <!-- Card Outer Frame -->
+    <rect x="1" y="1" width="478" height="268" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2" />
+    <rect x="3" y="3" width="474" height="264" rx="6" fill="none" stroke="#4b7f00" stroke-opacity="0.12" stroke-width="1" />
+
+    <!-- Top Technical Banner -->
+    <rect x="2" y="2" width="476" height="38" rx="6" fill="#ffffff" />
+    <line x1="2" y1="40" x2="478" y2="40" stroke="#d0d7de" stroke-width="1.5" />
+
+    <!-- Brand Symbol Sequence Badge -->
+    <g transform="translate(14, 11) scale(0.1875)">
+    <!-- 8px Grid Outer Corner Brackets (Cells 1,1; 10,1; 1,10; 10,10) -->
+    <!-- Top-Left -->
+    <rect x="8" y="8" width="16" height="8" fill="#d0d7de" />
+    <rect x="8" y="16" width="8" height="16" fill="#d0d7de" />
+
+    <!-- Top-Right -->
+    <rect x="72" y="8" width="16" height="8" fill="#d0d7de" />
+    <rect x="80" y="16" width="8" height="16" fill="#d0d7de" />
+
+    <!-- Bottom-Left -->
+    <rect x="8" y="80" width="16" height="8" fill="#d0d7de" />
+    <rect x="8" y="64" width="8" height="16" fill="#d0d7de" />
+
+    <!-- Bottom-Right -->
+    <rect x="72" y="80" width="16" height="8" fill="#d0d7de" />
+    <rect x="80" y="64" width="8" height="16" fill="#d0d7de" />
+
+    <!-- Terminal Chevron '>' Silhouette (Cells 3,3 to 6,5 to 3,8) -->
+    <rect x="24" y="24" width="8" height="8" fill="#0969da" />
+    <rect x="32" y="32" width="8" height="8" fill="#0969da" />
+    <rect x="40" y="40" width="8" height="8" fill="#0969da" />
+    <rect x="48" y="40" width="8" height="8" fill="#0969da" />
+    <rect x="40" y="48" width="8" height="8" fill="#0969da" />
+    <rect x="32" y="56" width="8" height="8" fill="#0969da" />
+    <rect x="24" y="64" width="8" height="8" fill="#0969da" />
+
+    <!-- The Signature Lime-Green Signal Block (16x16: Cells 7,6 & 8,6) -->
+    <rect x="56" y="48" width="16" height="16" rx="2" fill="#4b7f00" class="node-pulse" />
+
+    
+
+    <!-- Auxiliary Data Node (Cell 8,9) -->
+    <rect x="64" y="72" width="8" height="8" rx="1" fill="#656d76" />
+  </g>
+    <text x="38" y="24" class="mono bold" font-size="11" fill="#4b7f00">LVL 06</text>
+    <text x="100" y="24" class="mono category-label">// GEOSPATIAL / LAND_INTELLIGENCE</text>
+
+    <!-- Active Indicator -->
+    <circle cx="452" cy="21" r="3.5" fill="#4b7f00" />
+    <text x="442" y="24" text-anchor="end" class="mono bold" font-size="9" fill="#656d76">ONLINE</text>
+
+    <!-- 2D Vector Motif Scene -->
+    
+        <g transform="translate(18, 52)">
+          <rect width="444" height="74" rx="4" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2" />
+          <!-- Coordinate Label -->
+          <text x="25" y="24" class="mono bold" font-size="9" fill="#4b7f00">GIS: 13.0827° N, 80.2707° E</text>
+          <text x="25" y="38" class="mono" font-size="8" fill="#656d76">CADASTRAL_PARCEL_VERIFIED</text>
+
+          <!-- Cadastral Polygon Mesh -->
+          <g transform="translate(210, 10)">
+            <polygon points="10,40 45,15 110,25 95,58 35,52" fill="#f6f8fa" stroke="#4b7f00" stroke-width="1.5" />
+            <polygon points="110,25 155,10 190,35 145,55 95,58" fill="#f6f8fa" stroke="#0969da" stroke-width="1.5" />
+            <circle cx="45" cy="15" r="3" fill="#4b7f00" />
+            <circle cx="110" cy="25" r="3" fill="#a84300" />
+            <circle cx="155" cy="10" r="3" fill="#0969da" />
+            <line x1="45" y1="15" x2="95" y2="58" stroke="#d0d7de" stroke-width="1" stroke-dasharray="2 2" />
+          </g>
+        </g>
+      
+
+    <!-- Content Area: Name & Factual Description -->
+    <text x="18" y="156" class="mono card-title">LANDVAULT-AI</text>
+    <text x="18" y="184" class="mono card-desc">Multilingual land deed digitization and GIS parcel verification</text>
+
+    <!-- Technology Tags -->
+    
+      <g transform="translate(18, 232)">
+        <rect width="54" height="22" rx="4" fill="#ffffff" stroke="#d0d7de" stroke-width="1" />
+        <text x="27" y="15" text-anchor="middle" class="mono" font-size="10" fill="#1f2328">React</text>
+      </g>
+
+      <g transform="translate(80, 232)">
+        <rect width="58" height="22" rx="4" fill="#ffffff" stroke="#d0d7de" stroke-width="1" />
+        <text x="29" y="15" text-anchor="middle" class="mono" font-size="10" fill="#1f2328">Python</text>
+      </g>
+
+      <g transform="translate(146, 232)">
+        <rect width="66" height="22" rx="4" fill="#ffffff" stroke="#d0d7de" stroke-width="1" />
+        <text x="33" y="15" text-anchor="middle" class="mono" font-size="10" fill="#1f2328">PostGIS</text>
+      </g>
+
+    <!-- Access CTA Button -->
+    <g transform="translate(390, 232)">
+      <rect width="72" height="22" rx="4" fill="#ffffff" stroke="#4b7f00" stroke-width="1.2" />
+      <text x="36" y="15" text-anchor="middle" class="mono card-link">VIEW ↗</text>
+    </g>
+  </a>
+</svg>

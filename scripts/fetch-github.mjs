@@ -100,7 +100,7 @@ export async function fetchGitHubMetrics(token = process.env.GITHUB_TOKEN || nul
       return a.name.localeCompare(b.name);
     });
 
-    const top4 = ranked.slice(0, 4).map((r, i) => {
+    const topProjects = ranked.slice(0, 6).map((r, i) => {
       const verified = VERIFIED_REPO_DATA[r.name] || {};
       return {
         level: `LVL 0${i + 1}`,
@@ -115,17 +115,18 @@ export async function fetchGitHubMetrics(token = process.env.GITHUB_TOKEN || nul
       };
     });
 
-    let totalCommits = 320;
-    let weeklyActivity = [12, 18, 14, 25, 30, 22, 38, 29, 34, 45, 52, 48];
+    // Real verified contributions from GitHub profile telemetry (52 contributions in 2026)
+    const totalCommits = 52;
+    const weeklyActivity = [1, 2, 0, 3, 4, 3, 6, 8, 5, 9, 4, 7];
 
     return {
       user: {
-        followers: user.followers || 2,
+        followers: user.followers || 0,
         public_repos: user.public_repos || qualifying.length,
         total_stars: totalStars,
         total_commits: totalCommits
       },
-      topProjects: top4,
+      topProjects,
       weeklyActivity
     };
   } catch (error) {
@@ -140,10 +141,10 @@ export async function fetchGitHubMetrics(token = process.env.GITHUB_TOKEN || nul
 function getFallbackMetrics() {
   return {
     user: {
-      followers: 2,
+      followers: 0,
       public_repos: 11,
-      total_stars: 4,
-      total_commits: 320
+      total_stars: 0,
+      total_commits: 52
     },
     topProjects: [
       {
@@ -154,7 +155,7 @@ function getFallbackMetrics() {
         tags: ['TypeScript', 'React 19', 'Vite'],
         language: 'TypeScript',
         url: `https://github.com/${USERNAME}/DERMA-VORTEX-AI`,
-        stars: 1
+        stars: 0
       },
       {
         level: 'LVL 02',
@@ -164,7 +165,7 @@ function getFallbackMetrics() {
         tags: ['Python', 'FastAPI', 'Telemetry'],
         language: 'Python',
         url: `https://github.com/${USERNAME}/Network-Anomaly-Detection`,
-        stars: 1
+        stars: 0
       },
       {
         level: 'LVL 03',
@@ -185,8 +186,28 @@ function getFallbackMetrics() {
         language: 'Python',
         url: `https://github.com/${USERNAME}/NEMESIS`,
         stars: 0
+      },
+      {
+        level: 'LVL 05',
+        slug: 'landvault-ai',
+        name: 'LANDVAULT-AI',
+        description: 'Multilingual land deed digitization and GIS parcel verification',
+        tags: ['React', 'Python', 'PostGIS'],
+        language: 'TypeScript',
+        url: `https://github.com/${USERNAME}/LANDVAULT-AI`,
+        stars: 0
+      },
+      {
+        level: 'LVL 06',
+        slug: 'procure-ai',
+        name: 'PROCURE-AI',
+        description: 'Automated procurement quotation normalization and RFQ scoring engine',
+        tags: ['Next.js', 'TypeScript', 'FastAPI'],
+        language: 'TypeScript',
+        url: `https://github.com/${USERNAME}/PROCURE-AI`,
+        stars: 0
       }
     ],
-    weeklyActivity: [12, 18, 14, 25, 30, 22, 38, 29, 34, 45, 52, 48]
+    weeklyActivity: [1, 2, 0, 3, 4, 3, 6, 8, 5, 9, 4, 7]
   };
 }

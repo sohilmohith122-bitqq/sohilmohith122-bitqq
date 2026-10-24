@@ -74,6 +74,15 @@
 
   <br/><br/>
 
+  <!-- Animated Contribution Snake Arcade -->
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/snake-light.svg" />
+    <img src="./assets/snake-dark.svg" width="100%" alt="Contribution Grid Snake - Telemetry Arcade" />
+  </picture>
+
+  <br/><br/>
+
   <!-- 12-Week Commit Velocity Matrix -->
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/activity-dark.svg" />

@@ -63,7 +63,7 @@
   "years_coding_start": "2023",
   "projectsMode": "auto",
   "projects_mode": "auto",
-  "maxProjects": 4,
+  "maxProjects": 6,
   "projects": [
     {
       "level": "LVL 01",
@@ -124,6 +124,36 @@
       "url": "https://github.com/sohilmohith122-bitqq/NEMESIS",
       "stars": 0,
       "pushed_at": "2026-09-11T14:07:44Z"
+    },
+    {
+      "level": "LVL 05",
+      "slug": "agent-pix",
+      "name": "AGENT-PIX",
+      "description": "Autonomous multi-agent canvas and interactive pixel workspace",
+      "tags": [
+        "JavaScript",
+        "HTML5",
+        "Canvas"
+      ],
+      "language": "JavaScript",
+      "url": "https://github.com/sohilmohith122-bitqq/AGENT-PIX",
+      "stars": 0,
+      "pushed_at": "2026-09-09T18:06:11Z"
+    },
+    {
+      "level": "LVL 06",
+      "slug": "landvault-ai",
+      "name": "LANDVAULT-AI",
+      "description": "Multilingual land deed digitization and GIS parcel verification",
+      "tags": [
+        "React",
+        "Python",
+        "PostGIS"
+      ],
+      "language": "TypeScript",
+      "url": "https://github.com/sohilmohith122-bitqq/LANDVAULT-AI",
+      "stars": 0,
+      "pushed_at": "2026-08-31T00:42:47Z"
     }
   ],
   "links": {

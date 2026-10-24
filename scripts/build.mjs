@@ -13,7 +13,8 @@ import {
   generateSignatureSvg,
   generateSkillTileSvg,
   generateStatsArtSvg,
-  generateActivityArtSvg
+  generateActivityArtSvg,
+  generateSnakeArtSvg
 } from './lib/illustrations.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -60,11 +61,14 @@ function buildProjectCardsGallery(projects) {
     return `<a href="${p.url}"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-${slug}-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-${slug}-light.svg" /><img src="./assets/projects/card-${slug}-dark.svg" width="48%" alt="${p.name} - ${p.level}" /></picture></a>`;
   });
 
-  return `<div align="center">
-  ${cardsHtml[0] || ''}&nbsp;&nbsp;${cardsHtml[1] || ''}
-  <br/><br/>
-  ${cardsHtml[2] || ''}&nbsp;&nbsp;${cardsHtml[3] || ''}
-</div>`;
+  const pairs = [];
+  for (let i = 0; i < cardsHtml.length; i += 2) {
+    const card1 = cardsHtml[i] || '';
+    const card2 = cardsHtml[i + 1] ? `&nbsp;&nbsp;${cardsHtml[i + 1]}` : '';
+    pairs.push(`${card1}${card2}`);
+  }
+
+  return `<div align="center">\n  ${pairs.join('\n  <br/><br/>\n  ')}\n</div>`;
 }
 
 /**
@@ -109,7 +113,7 @@ async function build() {
   // 3. Update projects in config if in AUTO mode
   const isAuto = (config.projectsMode || config.projects_mode) === 'auto';
   if (isAuto) {
-    const max = config.maxProjects || 4;
+    const max = config.maxProjects || 6;
     config.projects = metrics.topProjects.slice(0, max);
     await fs.writeFile(configPath, JSON.stringify(config, null, 2) + '\n', 'utf8');
     console.log(`✓ Synchronized ${config.projects.length} collectible levels to profile.config.json`);
@@ -158,12 +162,14 @@ async function build() {
     await fs.writeFile(path.join(projectsDir, `card-${slug}-light.svg`), lightCard, 'utf8');
   }
 
-  // 9. Generate GitHub Stats Data Art & 12-Week Velocity
-  console.log('🎨 Generating Real GitHub Data Art...');
+  // 9. Generate GitHub Stats Data Art, Velocity & Snake Arcade
+  console.log('🎨 Generating Real GitHub Data Art & Contribution Snake...');
   await fs.writeFile(path.join(assetsDir, 'stats-dark.svg'), generateStatsArtSvg(metrics, 'dark'), 'utf8');
   await fs.writeFile(path.join(assetsDir, 'stats-light.svg'), generateStatsArtSvg(metrics, 'light'), 'utf8');
   await fs.writeFile(path.join(assetsDir, 'activity-dark.svg'), generateActivityArtSvg(metrics.weeklyActivity, 'dark'), 'utf8');
   await fs.writeFile(path.join(assetsDir, 'activity-light.svg'), generateActivityArtSvg(metrics.weeklyActivity, 'light'), 'utf8');
+  await fs.writeFile(path.join(assetsDir, 'snake-dark.svg'), generateSnakeArtSvg('dark'), 'utf8');
+  await fs.writeFile(path.join(assetsDir, 'snake-light.svg'), generateSnakeArtSvg('light'), 'utf8');
 
   // 10. Assemble README.md from template
   console.log('📄 Assembling README.md from template...');

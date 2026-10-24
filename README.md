@@ -35,6 +35,8 @@ Undergraduate software developer focused on architecting deterministic full-stac
   <a href="https://github.com/sohilmohith122-bitqq/DERMA-VORTEX-AI"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-01-derma-vortex-ai-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-01-derma-vortex-ai-light.svg" /><img src="./assets/projects/card-lvl-01-derma-vortex-ai-dark.svg" width="48%" alt="DERMA-VORTEX-AI - LVL 01" /></picture></a>&nbsp;&nbsp;<a href="https://github.com/sohilmohith122-bitqq/Network-Anomaly-Detection"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-02-network-anomaly-detection-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-02-network-anomaly-detection-light.svg" /><img src="./assets/projects/card-lvl-02-network-anomaly-detection-dark.svg" width="48%" alt="Network-Anomaly-Detection - LVL 02" /></picture></a>
   <br/><br/>
   <a href="https://github.com/sohilmohith122-bitqq/MEDSCOPE-AI"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-03-medscope-ai-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-03-medscope-ai-light.svg" /><img src="./assets/projects/card-lvl-03-medscope-ai-dark.svg" width="48%" alt="MEDSCOPE-AI - LVL 03" /></picture></a>&nbsp;&nbsp;<a href="https://github.com/sohilmohith122-bitqq/NEMESIS"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-04-nemesis-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-04-nemesis-light.svg" /><img src="./assets/projects/card-lvl-04-nemesis-dark.svg" width="48%" alt="NEMESIS - LVL 04" /></picture></a>
+  <br/><br/>
+  <a href="https://github.com/sohilmohith122-bitqq/AGENT-PIX"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-05-agent-pix-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-05-agent-pix-light.svg" /><img src="./assets/projects/card-lvl-05-agent-pix-dark.svg" width="48%" alt="AGENT-PIX - LVL 05" /></picture></a>&nbsp;&nbsp;<a href="https://github.com/sohilmohith122-bitqq/LANDVAULT-AI"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-06-landvault-ai-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-06-landvault-ai-light.svg" /><img src="./assets/projects/card-lvl-06-landvault-ai-dark.svg" width="48%" alt="LANDVAULT-AI - LVL 06" /></picture></a>
 </div>
 
 <br/>
@@ -47,6 +49,8 @@ Undergraduate software developer focused on architecting deterministic full-stac
 | `LVL 02` | **[Network-Anomaly-Detection](https://github.com/sohilmohith122-bitqq/Network-Anomaly-Detection)** | Real-time telemetry analysis and network anomaly detection pipeline | `Python` `FastAPI` `Telemetry` | [`launch →`](https://github.com/sohilmohith122-bitqq/Network-Anomaly-Detection) |
 | `LVL 03` | **[MEDSCOPE-AI](https://github.com/sohilmohith122-bitqq/MEDSCOPE-AI)** | Evidence-first clinical event timeline and health records engine | `Next.js` `TypeScript` `Prisma` | [`launch →`](https://github.com/sohilmohith122-bitqq/MEDSCOPE-AI) |
 | `LVL 04` | **[NEMESIS](https://github.com/sohilmohith122-bitqq/NEMESIS)** | Autonomous dual-loop voice assistant and security testing environment | `Python` `Faster-Whisper` `CUDA` | [`launch →`](https://github.com/sohilmohith122-bitqq/NEMESIS) |
+| `LVL 05` | **[AGENT-PIX](https://github.com/sohilmohith122-bitqq/AGENT-PIX)** | Autonomous multi-agent canvas and interactive pixel workspace | `JavaScript` `HTML5` `Canvas` | [`launch →`](https://github.com/sohilmohith122-bitqq/AGENT-PIX) |
+| `LVL 06` | **[LANDVAULT-AI](https://github.com/sohilmohith122-bitqq/LANDVAULT-AI)** | Multilingual land deed digitization and GIS parcel verification | `React` `Python` `PostGIS` | [`launch →`](https://github.com/sohilmohith122-bitqq/LANDVAULT-AI) |
 
 ---
 
@@ -89,6 +93,15 @@ Undergraduate software developer focused on architecting deterministic full-stac
     <source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./assets/stats-light.svg" />
     <img src="./assets/stats-dark.svg" width="100%" alt="Verified GitHub Public Telemetry" />
+  </picture>
+
+  <br/><br/>
+
+  <!-- Animated Contribution Snake Arcade -->
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/snake-light.svg" />
+    <img src="./assets/snake-dark.svg" width="100%" alt="Contribution Grid Snake - Telemetry Arcade" />
   </picture>
 
   <br/><br/>

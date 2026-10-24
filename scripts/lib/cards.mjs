@@ -16,6 +16,9 @@ function getCategoryLabel(name = '') {
   if (n.includes('ANOMALY') || n.includes('NETWORK')) return 'SYSTEMS / TELEMETRY';
   if (n.includes('MEDSCOPE')) return 'HEALTHCARE / TIMELINE_ENGINE';
   if (n.includes('NEMESIS')) return 'AUTONOMOUS / AUDIO_SECURITY';
+  if (n.includes('LANDVAULT') || n.includes('LAND')) return 'GEOSPATIAL / LAND_INTELLIGENCE';
+  if (n.includes('PROCURE')) return 'ENTERPRISE / RFQ_OPTIMIZATION';
+  if (n.includes('ARCTIC')) return 'DEVSEC / STATIC_ANALYSIS';
   return 'CORE_ENGINEERING';
 }
 
@@ -110,6 +113,52 @@ function renderCardScene(motifType, theme, accent) {
         </g>
       `;
 
+    case 'spatial':
+      // GIS cadastral boundary polygons, coordinate pins, and terrain scan
+      return `
+        <g transform="translate(18, 52)">
+          <rect width="444" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.2" />
+          <!-- Coordinate Label -->
+          <text x="25" y="24" class="mono bold" font-size="9" fill="${accent}">GIS: 13.0827° N, 80.2707° E</text>
+          <text x="25" y="38" class="mono" font-size="8" fill="${theme.muted}">CADASTRAL_PARCEL_VERIFIED</text>
+
+          <!-- Cadastral Polygon Mesh -->
+          <g transform="translate(210, 10)">
+            <polygon points="10,40 45,15 110,25 95,58 35,52" fill="${theme.surface}" stroke="${accent}" stroke-width="1.5" />
+            <polygon points="110,25 155,10 190,35 145,55 95,58" fill="${theme.surface}" stroke="${theme.blue}" stroke-width="1.5" />
+            <circle cx="45" cy="15" r="3" fill="${accent}" />
+            <circle cx="110" cy="25" r="3" fill="${theme.orange}" />
+            <circle cx="155" cy="10" r="3" fill="${theme.blue}" />
+            <line x1="45" y1="15" x2="95" y2="58" stroke="${theme.border}" stroke-width="1" stroke-dasharray="2 2" />
+          </g>
+        </g>
+      `;
+
+    case 'ledger':
+      // Automated RFQ normalization ledger and pricing index bars
+      return `
+        <g transform="translate(18, 52)">
+          <rect width="444" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.2" />
+          <!-- RFQ Scoreboard Table -->
+          <rect x="25" y="14" width="190" height="46" rx="3" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
+          <text x="35" y="28" class="mono bold" font-size="9" fill="${accent}">RFQ_NORMALIZER // v2.4</text>
+          <text x="35" y="42" class="mono" font-size="8" fill="${theme.text}">SUPPLIER_SCORE: 98.4% [PASS]</text>
+          <text x="35" y="52" class="mono" font-size="7" fill="${theme.muted}">VARIANCE_DELTA: -14.2%</text>
+
+          <!-- Distribution Waterfall Bars -->
+          <g transform="translate(245, 14)">
+            <rect x="0" y="24" width="22" height="22" rx="2" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
+            <rect x="0" y="32" width="22" height="14" rx="2" fill="${theme.blue}" />
+            <rect x="30" y="14" width="22" height="32" rx="2" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
+            <rect x="30" y="20" width="22" height="26" rx="2" fill="${accent}" />
+            <rect x="60" y="8" width="22" height="38" rx="2" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
+            <rect x="60" y="12" width="22" height="34" rx="2" fill="${theme.orange}" />
+            <rect x="90" y="2" width="22" height="44" rx="2" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
+            <rect x="90" y="6" width="22" height="40" rx="2" fill="${accent}" />
+          </g>
+        </g>
+      `;
+
     case 'terminal':
     default:
       // Dual-loop terminal & audio waveforms
@@ -160,6 +209,15 @@ export function classifyMotif(name = '', desc = '') {
   }
   if (text.includes('clinical') || text.includes('timeline') || text.includes('medscope')) {
     return 'timeline';
+  }
+  if (text.includes('landvault') || text.includes('land') || text.includes('gis') || text.includes('deed')) {
+    return 'spatial';
+  }
+  if (text.includes('procure') || text.includes('rfq') || text.includes('quotation')) {
+    return 'ledger';
+  }
+  if (text.includes('arctic') || text.includes('sens') || text.includes('vulnerability')) {
+    return 'security';
   }
   return 'terminal';
 }
