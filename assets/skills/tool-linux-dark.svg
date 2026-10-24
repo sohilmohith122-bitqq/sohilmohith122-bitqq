@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 56" width="160" height="56">
+  <title>Linux / WSL</title>
+  <desc>Flat 2D skill tile for Linux / WSL</desc>
+  <style>
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace; }
+    .bold { font-weight: 700; }
+    
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes pulseNode {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    .cursor-blink {
+      animation: blink 0.9s infinite step-start;
+    }
+    .node-pulse {
+      animation: pulseNode 3s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor-blink, .node-pulse, * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <rect x="1" y="1" width="158" height="54" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5" />
+  
+        <rect x="16" y="14" width="32" height="22" rx="3" fill="#0d1117" stroke="#ff8a3d" stroke-width="1.5" />
+        <text x="21" y="27" class="mono bold" font-size="10" fill="#ff8a3d">&gt;_</text>
+      
+
+  <g transform="translate(58, 24)">
+    <text x="0" y="0" class="mono bold" font-size="11" fill="#e6edf3">Linux / WSL</text>
+    <text x="0" y="14" class="mono" font-size="9" fill="#8b949e">TOOL</text>
+  </g>
+</svg>

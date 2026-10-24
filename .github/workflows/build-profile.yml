@@ -1,15 +1,15 @@
-name: Build & Refresh Profile
+name: SOHIL.exe 2D Universe Automation
 
 on:
   schedule:
-    # Run once daily at 00:00 UTC
+    # Run daily at 00:00 UTC
     - cron: "0 0 * * *"
   workflow_dispatch:
   push:
     branches:
       - main
     paths-ignore:
-      - 'assets/*.svg'
+      - 'assets/**'
       - 'README.md'
       - 'profile.config.json'
 
@@ -23,30 +23,24 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        # actions/checkout@v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Setup Node.js 20
-        uses: actions/setup-node@v4
+        # actions/setup-node@v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5a1
         with:
           node-version: 20
 
-      - name: Run Build Pipeline
+      - name: Compile 2D Universe Assets
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run build
 
-      - name: Run Profile Lint Suite
-        run: npm run lint
+      - name: Run Test & Validation Suite
+        run: npm run test
 
-      - name: Generate Contribution Snake Animation
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            assets/snake.svg?color_snake=#00ff9c&color_dots=#ebedf0,#9be9a8,#40c463,#30a14e,#216e39
-            assets/snake-dark.svg?palette=github-dark&color_snake=#00ff9c
-
-      - name: Commit & Push Profile Updates
+      - name: Commit & Push Changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -55,6 +49,5 @@ jobs:
             git commit -m "chore(profile): refresh generated assets [skip ci]"
             git push
           else
-            console_msg="No automated profile diff detected; skipping commit."
-            echo "$console_msg"
+            echo "No profile changes detected; skipping commit."
           fi

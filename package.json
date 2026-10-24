@@ -1,11 +1,13 @@
 {
   "name": "sohilmohith122-bitqq",
-  "version": "1.0.0",
-  "description": "Terminal / cyberpunk developer profile for GitHub",
+  "version": "2.0.0",
+  "description": "SOHIL.exe - The 2D Developer Universe",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "lint": "node scripts/lint.mjs"
+    "test": "node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs",
+    "lint": "node scripts/validate.mjs"
   },
   "devDependencies": {}
 }

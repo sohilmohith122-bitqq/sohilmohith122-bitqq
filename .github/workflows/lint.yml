@@ -1,4 +1,4 @@
-name: Lint Profile SVGs & Links
+name: Lint & Validate Universe
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
       - 'assets/**'
       - 'scripts/**'
       - 'README.template.md'
+      - 'profile.config.json'
   pull_request:
     branches:
       - main
@@ -16,18 +17,20 @@ permissions:
   contents: read
 
 jobs:
-  lint:
+  validate:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        # actions/checkout@v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Setup Node.js 20
-        uses: actions/setup-node@v4
+        # actions/setup-node@v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5a1
         with:
           node-version: 20
 
-      - name: Run Profile Linter
-        run: npm run lint
+      - name: Execute Validation Suite
+        run: npm run test

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <title>SOHIL.exe Signature Motif</title>
+  <desc>Pixel cursor signature emblem.</desc>
+  <rect width="32" height="32" rx="4" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1" />
+  <g transform="translate(8, 8) scale(1)">
+    <!-- Outer Corner Brackets (2px flat pixel strokes) -->
+    <rect x="0" y="0" width="4" height="2" fill="#4b7f00" />
+    <rect x="0" y="2" width="2" height="2" fill="#4b7f00" />
+
+    <rect x="12" y="0" width="4" height="2" fill="#4b7f00" />
+    <rect x="14" y="2" width="2" height="2" fill="#4b7f00" />
+
+    <rect x="0" y="14" width="4" height="2" fill="#4b7f00" />
+    <rect x="0" y="12" width="2" height="2" fill="#4b7f00" />
+
+    <rect x="12" y="14" width="4" height="2" fill="#4b7f00" />
+    <rect x="14" y="12" width="2" height="2" fill="#4b7f00" />
+
+    <!-- Center Geometric Core Node -->
+    <rect x="6" y="6" width="4" height="4" fill="#0969da" />
+  </g>
+</svg>

@@ -1,329 +1,201 @@
 /**
- * @fileoverview Main build script for assembling the terminal profile README and dynamic SVGs.
- *
- * HOW TO ADD A NEW GENERATED CARD:
- * 1. Define a generator function in this file or inside scripts/lib/svg.mjs.
- * 2. Wrap your SVG content with terminalWindow({ title, width, height, content }).
- * 3. Call your generator in the main build() function below.
- * 4. Write the output SVG into the assets/ directory.
- * 5. Reference the generated asset in README.template.md.
+ * @fileoverview Main build script for SOHIL.exe - The 2D Developer Universe.
+ * Generates dark and light SVG vector assets, populates project cards, and compiles README.md.
  */
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { escapeXml, terminalWindow, renderBar, renderSparkline } from './lib/svg.mjs';
 import { fetchGitHubMetrics } from './fetch-github.mjs';
+import { renderProjectCard } from './lib/cards.mjs';
+import {
+  generateHeroSvg,
+  generateSignatureSvg,
+  generateSkillTileSvg,
+  generateStatsArtSvg,
+  generateActivityArtSvg
+} from './lib/illustrations.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 
-/**
- * Calculates human-readable uptime from starting year.
- * @param {string|number} startYear
- * @returns {string}
- */
-function calculateUptime(startYear) {
-  const currentYear = new Date().getFullYear();
-  const parsed = parseInt(startYear, 10);
-  if (!isNaN(parsed) && parsed > 2000 && parsed <= currentYear) {
-    const diff = currentYear - parsed;
-    return `${diff} year${diff === 1 ? '' : 's'} (${parsed}-present)`;
-  }
-  return 'since day 1';
-}
+const SKILL_TILES_DEF = [
+  { id: 'lang-python', title: 'Python', category: 'language', glyph: 'python' },
+  { id: 'lang-ts', title: 'TypeScript', category: 'language', glyph: 'typescript' },
+  { id: 'lang-js', title: 'JavaScript', category: 'language', glyph: 'terminal' },
+  { id: 'tool-react', title: 'React 19', category: 'framework', glyph: 'react' },
+  { id: 'tool-node', title: 'Node.js', category: 'framework', glyph: 'server' },
+  { id: 'tool-fastapi', title: 'FastAPI', category: 'framework', glyph: 'server' },
+  { id: 'tool-git', title: 'Git / CI', category: 'tool', glyph: 'terminal' },
+  { id: 'tool-linux', title: 'Linux / WSL', category: 'tool', glyph: 'terminal' }
+];
 
 /**
- * Generates the assets/neofetch.svg system card.
- * @param {object} config
- * @returns {string}
- */
-export function generateNeofetchSvg(config) {
-  const uptime = calculateUptime(config.years_coding_start);
-  const languagesStr = config.languages.slice(0, 4).join(', ');
-
-  // Stylized cyberpunk operator ASCII emblem
-  const asciiArt = [
-    '    .----.',
-    '   /  --  \\',
-    '  |  (..)  |',
-    '  |   ==   |',
-    '   \\  __  /',
-    '    `----`',
-    '   [CYBER]',
-    '   [SH-01]'
-  ];
-
-  const asciiRows = asciiArt
-    .map((line, i) => `<text x="35" y="${60 + i * 18}" class="mono" font-size="13" font-weight="bold" fill="#00ff9c">${escapeXml(line)}</text>`)
-    .join('\n');
-
-  // Key-value specs
-  const specs = [
-    { label: 'OS', val: config.os_of_choice },
-    { label: 'Host', val: 'Dev Station (x86_64)' },
-    { label: 'Kernel', val: 'Linux 6.x / Cloud Native' },
-    { label: 'Uptime', val: uptime },
-    { label: 'Shell', val: config.shell },
-    { label: 'Editor', val: config.editor },
-    { label: 'Languages', val: languagesStr },
-    { label: 'Base', val: `${config.location} (${config.timezone.split(' ')[0]})` },
-    { label: 'Status', val: config.status }
-  ];
-
-  const specRows = specs
-    .map(
-      (s, i) => `<g transform="translate(190, ${58 + i * 20})">
-      <text x="0" y="0" class="mono" font-size="12" font-weight="bold" fill="#22e6ff">${escapeXml(s.label)}:</text>
-      <text x="95" y="0" class="mono" font-size="12" fill="#c9d1d9">${escapeXml(s.val)}</text>
-    </g>`
-    )
-    .join('\n');
-
-  // 8 Color chips for terminal theme palette
-  const chips = ['#0a0e14', '#ff5370', '#00ff9c', '#ffb86b', '#22e6ff', '#b26bff', '#c9d1d9', '#5c6b7a'];
-  const colorChips = chips
-    .map((c, i) => `<rect x="${190 + i * 22}" y="246" width="16" height="10" rx="2" fill="${c}" stroke="#1c2736" stroke-width="1" />`)
-    .join('\n');
-
-  const content = `
-    <!-- Header identity line -->
-    <text x="190" y="24" class="mono" font-size="15" font-weight="bold" fill="#00ff9c">${escapeXml(config.handle)}<tspan fill="#5c6b7a">@</tspan><tspan fill="#b26bff">operator</tspan></text>
-    <line x1="190" y1="34" x2="480" y2="34" stroke="#1c2736" stroke-width="1.5" />
-
-    <!-- ASCII Emblem -->
-    ${asciiRows}
-
-    <!-- Neofetch Spec List -->
-    ${specRows}
-
-    <!-- Terminal Color Palette Palette -->
-    ${colorChips}
-  `;
-
-  return terminalWindow({
-    title: 'sohil@operator: ~/neofetch',
-    width: 800,
-    height: 310,
-    content,
-    showScanlines: true,
-    showMatrix: false,
-    accentColor: '#00ff9c'
-  });
-}
-
-/**
- * Generates the assets/stats.svg metrics card.
- * @param {object} metrics
- * @returns {string}
- */
-export function generateStatsSvg(metrics) {
-  const statRows = [
-    { label: 'PUBLIC REPOS', val: metrics.user.public_repos, color: '#22e6ff' },
-    { label: 'STARS EARNED', val: metrics.user.total_stars, color: '#ffb86b' },
-    { label: 'TOTAL COMMITS (1Y)', val: metrics.user.total_commits, color: '#00ff9c' },
-    { label: 'FOLLOWERS', val: metrics.user.followers, color: '#b26bff' }
-  ];
-
-  const statBoxes = statRows
-    .map(
-      (s, i) => `<g transform="translate(35, ${25 + i * 48})">
-      <rect width="250" height="38" rx="6" fill="#111823" stroke="#1a2535" stroke-width="1" />
-      <text x="16" y="24" class="mono" font-size="11" font-weight="bold" fill="#5c6b7a">${escapeXml(s.label)}</text>
-      <text x="234" y="24" text-anchor="end" class="mono" font-size="15" font-weight="bold" fill="${s.color}">${escapeXml(s.val)}</text>
-    </g>`
-    )
-    .join('\n');
-
-  // Top languages bars
-  const langBars = metrics.topLanguages
-    .map((lang, i) =>
-      renderBar({
-        label: lang.name,
-        percentage: lang.percentage,
-        valueText: `${lang.percentage}%`,
-        color: lang.color,
-        x: 330,
-        y: 28 + i * 36,
-        width: 320
-      })
-    )
-    .join('\n');
-
-  const content = `
-    <!-- Left Column: Metrics -->
-    ${statBoxes}
-
-    <!-- Divider Line -->
-    <line x1="305" y1="20" x2="305" y2="215" stroke="#1a2535" stroke-width="1" stroke-dasharray="4 4" />
-
-    <!-- Right Column: Language Distribution -->
-    <text x="330" y="16" class="mono" font-size="11" font-weight="bold" fill="#5c6b7a">TOP LANGUAGES (CODE DISTRIBUTION)</text>
-    ${langBars}
-  `;
-
-  return terminalWindow({
-    title: 'sohil@stats: ~/metrics',
-    width: 800,
-    height: 260,
-    content,
-    showScanlines: true,
-    showMatrix: false,
-    accentColor: '#22e6ff'
-  });
-}
-
-/**
- * Generates the assets/activity.svg 12-week velocity sparkline.
- * @param {number[]} weeklyActivity
- * @returns {string}
- */
-export function generateActivitySvg(weeklyActivity) {
-  const sparkline = renderSparkline({
-    points: weeklyActivity,
-    width: 720,
-    height: 85,
-    color: '#00ff9c',
-    id: 'activitySpark'
-  });
-
-  const weekLabels = Array.from({ length: 12 }, (_, i) => {
-    const x = Math.round(i * (720 / 11));
-    const label = i === 11 ? 'NOW' : `W-${12 - i}`;
-    return `<text x="${x}" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">${label}</text>`;
-  }).join('\n');
-
-  const total12w = weeklyActivity.reduce((a, b) => a + b, 0);
-
-  const content = `
-    <g transform="translate(40, 20)">
-      <text x="0" y="0" class="mono" font-size="12" font-weight="bold" fill="#00ff9c">&gt; COMMIT VELOCITY</text>
-      <text x="720" y="0" text-anchor="end" class="mono" font-size="11" fill="#5c6b7a">TOTAL 12-WEEK COMMITS: <tspan fill="#22e6ff" font-weight="bold">${total12w}</tspan></text>
-
-      <!-- Sparkline plot area -->
-      <g transform="translate(0, 15)">
-        <!-- Subtle horizontal grid lines -->
-        <line x1="0" y1="0" x2="720" y2="0" stroke="#16222f" stroke-width="1" stroke-dasharray="3 3" />
-        <line x1="0" y1="42" x2="720" y2="42" stroke="#16222f" stroke-width="1" stroke-dasharray="3 3" />
-        <line x1="0" y1="85" x2="720" y2="85" stroke="#16222f" stroke-width="1" />
-
-        ${sparkline}
-        ${weekLabels}
-      </g>
-    </g>
-  `;
-
-  return terminalWindow({
-    title: 'sohil@activity: ~/sparkline',
-    width: 800,
-    height: 190,
-    content,
-    showScanlines: true,
-    showMatrix: false,
-    accentColor: '#00ff9c'
-  });
-}
-
-/**
- * Builds the Markdown projects table.
+ * Builds the Markdown projects table fallback.
  * @param {Array<object>} projects
  * @returns {string}
  */
-function buildProjectsTable(projects) {
+function buildProjectsMarkdown(projects) {
   const rows = projects.map(p => {
-    const link = p.url ? `[\`launch →\`](${p.url})` : '`-`';
-    return `| \`drwxr-xr-x\` | **[${p.name}](${p.url})** | ${p.description} | \`${p.language}\` | ${link} |`;
+    const tagsStr = (p.tags || []).map(t => `\`${t}\``).join(' ');
+    return `| \`${p.level}\` | **[${p.name}](${p.url})** | ${p.description} | ${tagsStr} | [\`launch →\`](${p.url}) |`;
   });
 
-  if (projects.length < 3) {
-    rows.push(`| \`drwxr-xr-x\` | **next-project/** | [ in progress ] | \`-\` | \`-\` |`);
-  }
-
   return [
-    '| Perms | Repository | Description | Stack | Link |',
-    '| :--- | :--- | :--- | :---: | :---: |',
+    '| Level | Project | Description | Stack | Link |',
+    '| :---: | :--- | :--- | :--- | :---: |',
     ...rows
   ].join('\n');
+}
+
+/**
+ * Builds the Project Arcade cards HTML gallery using <picture> elements.
+ * @param {Array<object>} projects
+ * @returns {string}
+ */
+function buildProjectCardsGallery(projects) {
+  const cardsHtml = projects.map(p => {
+    const slug = `${p.level.toLowerCase().replace(' ', '-')}-${p.slug}`;
+    return `<a href="${p.url}"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-${slug}-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-${slug}-light.svg" /><img src="./assets/projects/card-${slug}-dark.svg" width="48%" alt="${p.name} - ${p.level}" /></picture></a>`;
+  });
+
+  return `<div align="center">
+  ${cardsHtml[0] || ''}&nbsp;&nbsp;${cardsHtml[1] || ''}
+  <br/><br/>
+  ${cardsHtml[2] || ''}&nbsp;&nbsp;${cardsHtml[3] || ''}
+</div>`;
+}
+
+/**
+ * Builds the Skill Tiles HTML gallery.
+ * @returns {string}
+ */
+function buildSkillsGallery() {
+  const tileMarkup = SKILL_TILES_DEF.map(skill => {
+    return `<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/skills/${skill.id}-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/skills/${skill.id}-light.svg" /><img src="./assets/skills/${skill.id}-dark.svg" width="160" height="56" alt="${skill.title}" /></picture>`;
+  });
+
+  const row1 = tileMarkup.slice(0, 4).join('\n  ');
+  const row2 = tileMarkup.slice(4, 8).join('\n  ');
+
+  return `<div align="center">
+  ${row1}
+  <br/><br/>
+  ${row2}
+</div>`;
 }
 
 /**
  * Main assemble pipeline.
  */
 async function build() {
-  console.log('⚡ Initializing terminal profile build...');
+  console.log('⚡ Initializing SOHIL.exe 2D Universe build...');
 
-  // 1. Read configuration
+  // 1. Load profile configuration
   const configPath = path.join(ROOT_DIR, 'profile.config.json');
   const rawConfig = await fs.readFile(configPath, 'utf8');
   const config = JSON.parse(rawConfig);
 
+  // Strict naming rule check
+  if (config.name !== 'Sohil') {
+    throw new Error(`CRITICAL: config.name must strictly be "Sohil". Found: "${config.name}"`);
+  }
+
   // 2. Fetch GitHub metrics
-  console.log('📡 Fetching GitHub telemetry & metrics...');
+  console.log('📡 Fetching verified repository telemetry...');
   const metrics = await fetchGitHubMetrics();
 
   // 3. Update projects in config if in AUTO mode
   if (config.projects_mode === 'auto') {
     config.projects = metrics.topProjects;
     await fs.writeFile(configPath, JSON.stringify(config, null, 2) + '\n', 'utf8');
-    console.log(`✓ Synchronized ${config.projects.length} qualifying projects to profile.config.json`);
+    console.log(`✓ Synchronized ${config.projects.length} collectible levels to profile.config.json`);
   }
 
-  // 4. Ensure assets directory exists
+  // 4. Ensure target asset directories
   const assetsDir = path.join(ROOT_DIR, 'assets');
+  const skillsDir = path.join(assetsDir, 'skills');
+  const projectsDir = path.join(assetsDir, 'projects');
   await fs.mkdir(assetsDir, { recursive: true });
+  await fs.mkdir(skillsDir, { recursive: true });
+  await fs.mkdir(projectsDir, { recursive: true });
 
-  // 5. Generate and write SVGs
-  console.log('🎨 Generating terminal SVGs...');
-  const neofetchSvg = generateNeofetchSvg(config);
-  await fs.writeFile(path.join(assetsDir, 'neofetch.svg'), neofetchSvg, 'utf8');
+  // 5. Generate Hero Headers (Dark and Light)
+  console.log('🎨 Generating Hero Workstation (Dark & Light)...');
+  await fs.writeFile(path.join(assetsDir, 'header-dark.svg'), generateHeroSvg('dark'), 'utf8');
+  await fs.writeFile(path.join(assetsDir, 'header-light.svg'), generateHeroSvg('light'), 'utf8');
 
-  const statsSvg = generateStatsSvg(metrics);
-  await fs.writeFile(path.join(assetsDir, 'stats.svg'), statsSvg, 'utf8');
+  // 6. Generate Signature Motifs
+  console.log('🎨 Generating Signature Pixel Cursor Motifs...');
+  await fs.writeFile(path.join(assetsDir, 'signature-dark.svg'), generateSignatureSvg('dark'), 'utf8');
+  await fs.writeFile(path.join(assetsDir, 'signature-light.svg'), generateSignatureSvg('light'), 'utf8');
 
-  const activitySvg = generateActivitySvg(metrics.weeklyActivity);
-  await fs.writeFile(path.join(assetsDir, 'activity.svg'), activitySvg, 'utf8');
+  // 7. Generate Skill Tiles (Dark & Light)
+  console.log('🎨 Generating 2D Skill Icon Tiles...');
+  for (const skill of SKILL_TILES_DEF) {
+    await fs.writeFile(
+      path.join(skillsDir, `${skill.id}-dark.svg`),
+      generateSkillTileSvg(skill.title, skill.category, skill.glyph, 'dark'),
+      'utf8'
+    );
+    await fs.writeFile(
+      path.join(skillsDir, `${skill.id}-light.svg`),
+      generateSkillTileSvg(skill.title, skill.category, skill.glyph, 'light'),
+      'utf8'
+    );
+  }
 
-  // 6. Generate README from template
+  // 8. Generate Project Arcade Cards (Dark & Light)
+  console.log('🎨 Generating Project Arcade Collectible Cards...');
+  for (const p of config.projects) {
+    const slug = `${p.level.toLowerCase().replace(' ', '-')}-${p.slug}`;
+    const darkCard = renderProjectCard({ ...p, mode: 'dark' });
+    const lightCard = renderProjectCard({ ...p, mode: 'light' });
+    await fs.writeFile(path.join(projectsDir, `card-${slug}-dark.svg`), darkCard, 'utf8');
+    await fs.writeFile(path.join(projectsDir, `card-${slug}-light.svg`), lightCard, 'utf8');
+  }
+
+  // 9. Generate GitHub Stats Data Art & 12-Week Velocity
+  console.log('🎨 Generating Real GitHub Data Art...');
+  await fs.writeFile(path.join(assetsDir, 'stats-dark.svg'), generateStatsArtSvg(metrics, 'dark'), 'utf8');
+  await fs.writeFile(path.join(assetsDir, 'stats-light.svg'), generateStatsArtSvg(metrics, 'light'), 'utf8');
+  await fs.writeFile(path.join(assetsDir, 'activity-dark.svg'), generateActivityArtSvg(metrics.weeklyActivity, 'dark'), 'utf8');
+  await fs.writeFile(path.join(assetsDir, 'activity-light.svg'), generateActivityArtSvg(metrics.weeklyActivity, 'light'), 'utf8');
+
+  // 10. Assemble README.md from template
   console.log('📄 Assembling README.md from template...');
   const templatePath = path.join(ROOT_DIR, 'README.template.md');
   const template = await fs.readFile(templatePath, 'utf8');
 
-  const skillsJson = JSON.stringify(
-    {
-      languages: config.languages,
-      frameworks_tools: config.frameworks_tools,
-      learning: config.learning
-    },
-    null,
-    2
-  );
-
-  const projectsTable = buildProjectsTable(config.projects);
-
-  const pingLinks = [
-    config.links.linkedin && !config.links.linkedin.includes('[EDIT')
-      ? `- **LinkedIn**: [${config.links.linkedin}](${config.links.linkedin})`
-      : `- **LinkedIn**: \`[EDIT: Add LinkedIn URL in profile.config.json]\``,
-    config.links.email && !config.links.email.includes('[EDIT')
-      ? `- **Email**: [${config.links.email}](mailto:${config.links.email})`
-      : `- **Email**: \`[EDIT: Add contact email in profile.config.json]\``,
-    config.links.portfolio && !config.links.portfolio.includes('[EDIT')
-      ? `- **Portfolio**: [${config.links.portfolio}](${config.links.portfolio})`
-      : null
-  ]
-    .filter(Boolean)
-    .join('\n');
-
   const renderedReadme = template
     .replace(/\{\{NAME\}\}/g, config.name)
     .replace(/\{\{HANDLE\}\}/g, config.handle)
-    .replace(/\{\{ROLE\}\}/g, config.role)
+    .replace(/\{\{HEADLINE\}\}/g, config.headline)
     .replace(/\{\{TAGLINE\}\}/g, config.tagline)
+    .replace(/\{\{ABOUT\}\}/g, config.about)
     .replace(/\{\{LOCATION\}\}/g, config.location)
-    .replace(/\{\{SKILLS_JSON\}\}/g, skillsJson)
-    .replace(/\{\{PROJECTS_TABLE\}\}/g, projectsTable)
-    .replace(/\{\{PING_LINKS\}\}/g, pingLinks);
+    .replace(/\{\{EDUCATION\}\}/g, config.education || 'B.Tech AI & Data Science')
+    .replace(/\{\{AVAILABILITY\}\}/g, config.availability)
+    .replace(/\{\{PROJECT_CARDS_GALLERY\}\}/g, buildProjectCardsGallery(config.projects))
+    .replace(/\{\{PROJECTS_TABLE\}\}/g, buildProjectsMarkdown(config.projects))
+    .replace(/\{\{SKILLS_TILES_GALLERY\}\}/g, buildSkillsGallery())
+    .replace(
+      /\{\{LEARNING_LIST\}\}/g,
+      config.learning.map(item => `\`[ ⯌ ]\` ${item}`).join(' &nbsp;•&nbsp; ')
+    )
+    .replace(
+      /\{\{LINKEDIN_LINK\}\}/g,
+      config.links.linkedin.includes('[EDIT')
+        ? '`[EDIT: Add LinkedIn in profile.config.json]`'
+        : `[Connect on LinkedIn →](${config.links.linkedin})`
+    )
+    .replace(
+      /\{\{EMAIL_LINK\}\}/g,
+      config.links.email.includes('[EDIT')
+        ? '`[EDIT: Add Email in profile.config.json]`'
+        : `[${config.links.email}](mailto:${config.links.email})`
+    );
 
   await fs.writeFile(path.join(ROOT_DIR, 'README.md'), renderedReadme, 'utf8');
   console.log('✓ Successfully assembled README.md');
