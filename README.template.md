@@ -1,10 +1,10 @@
 <div align="center">
 
-<!-- HERO: THE CHAOTIC WORKSTATION (FLAT 2D VECTOR) -->
+<!-- 1. HERO: THE CHAOTIC WORKSTATION (FLAT 2D VECTOR) -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/header-light.svg" />
-  <img src="./assets/header-dark.svg" width="100%" alt="SOHIL.exe - The 2D Developer Universe" />
+  <img src="./assets/header-dark.svg" width="100%" alt="SOHIL.exe - CODE / FORM - The 2D Developer Universe" />
 </picture>
 
 # Sohil
@@ -19,29 +19,29 @@
 
 ---
 
-### 🕹️ At a Glance // Recruiter Brief
+### 🕹️ Developer Overview // Recruiter Brief
 
 {{ABOUT}}
 
-- **Primary Focus**: Full-stack web engineering, automated code security analyzers & on-device AI pipelines.
+- **Primary Focus**: Full-stack web engineering, static code security analyzers & multimodal AI pipelines.
 - **Production Core**: Python, TypeScript, React 19, FastAPI, PostgreSQL, Linux & Docker.
 - **Flagship Project**: [`DERMA-VORTEX-AI`](https://github.com/sohilmohith122-bitqq/DERMA-VORTEX-AI) — Multimodal dermatological clinical screening platform.
 
 ---
 
-### 👾 Project Arcade // Collectible Levels
+### 👾 Selected Work // Collectible Project Arcade
 
 {{PROJECT_CARDS_GALLERY}}
 
 <br/>
 
-#### ❯ Complete Verified Repository Registry
+#### ❯ Verified Public Repository Registry
 
 {{PROJECTS_TABLE}}
 
 ---
 
-### 🧰 Skill Inventory // Flat 2D Artifacts
+### 🧰 Skills & Tools // Flat 2D Artifacts
 
 {{SKILLS_TILES_GALLERY}}
 
@@ -49,6 +49,16 @@
 
 **⚡ Actively Leveling Up In**:
 {{LEARNING_LIST}}
+
+---
+
+### 📐 Engineering Principles // SOHIL.exe
+
+| Principle | Core Directive | Practice |
+| :---: | :--- | :--- |
+| **01** | **IDEAS** | First-principles systems architecture & deterministic domain modeling. |
+| **02** | **CODE** | Clean, zero-bloat vector & runtime implementations with strict type safety. |
+| **03** | **IMPACT** | Autonomous tooling engineered to eliminate friction for developers. |
 
 ---
 
@@ -89,11 +99,11 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/signature-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/signature-light.svg" />
-  <img src="./assets/signature-dark.svg" width="24" height="24" alt="SOHIL.exe Signature Motif" />
+  <img src="./assets/signature-dark.svg" width="48" height="48" alt="The Sohil Signal - Signature Brand Symbol" />
 </picture>
 
 ```bash
-# SOHIL.exe // [ ⯌ ] SESSION TERMINATED DETERMINISTICALLY
+# SOHIL.exe // [ ⯌ ] IDEAS → CODE → IMPACT
 exit 0
 ```
 

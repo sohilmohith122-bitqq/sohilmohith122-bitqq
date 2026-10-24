@@ -1,14 +1,39 @@
 {
   "name": "Sohil",
+  "username": "sohilmohith122-bitqq",
   "handle": "sohilmohith122-bitqq",
   "github_url": "https://github.com/sohilmohith122-bitqq",
   "headline": "Full-Stack Builder & Autonomous Systems Explorer",
-  "tagline": "Building software universes from first principles.",
+  "tagline": "IDEAS → CODE → IMPACT",
   "location": "Tamil Nadu, India",
   "timezone": "IST (UTC+5:30)",
   "education": "Undergraduate, Artificial Intelligence & Data Science",
   "availability": "Open to internships, research collabs & open-source builds",
   "about": "Undergraduate software developer focused on architecting deterministic full-stack web platforms, static code security tools, and multimodal AI pipelines. I enjoy designing clean, transparent systems from scratch and building tools that make developers faster.",
+  "skills": {
+    "languages": [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "frameworks_tools": [
+      "React",
+      "Node.js",
+      "FastAPI",
+      "PostgreSQL",
+      "Git",
+      "GitHub Actions",
+      "Linux"
+    ],
+    "learning": [
+      "Distributed Systems",
+      "System Design",
+      "Cybersecurity Heuristics",
+      "Rust"
+    ]
+  },
   "os_of_choice": "Windows + WSL2 (Ubuntu)",
   "shell": "bash",
   "editor": "VS Code",
@@ -36,7 +61,9 @@
   ],
   "current_project": "DERMA-VORTEX-AI & Autonomous Agent Workbenches",
   "years_coding_start": "2023",
+  "projectsMode": "auto",
   "projects_mode": "auto",
+  "maxProjects": 4,
   "projects": [
     {
       "level": "LVL 01",

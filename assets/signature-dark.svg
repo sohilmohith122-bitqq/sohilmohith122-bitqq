@@ -1,22 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <title>SOHIL.exe Signature Motif</title>
-  <desc>Pixel cursor signature emblem.</desc>
-  <rect width="32" height="32" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1" />
-  <g transform="translate(8, 8) scale(1)">
-    <!-- Outer Corner Brackets (2px flat pixel strokes) -->
-    <rect x="0" y="0" width="4" height="2" fill="#b7ff3c" />
-    <rect x="0" y="2" width="2" height="2" fill="#b7ff3c" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <title>The Sohil Signal - Signature Brand Symbol</title>
+  <desc>Original 96x96 geometric pixel-grid developer symbol constructed on an 8px grid with signature lime signal square.</desc>
+  <style>
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace; }
+    .bold { font-weight: 700; }
+    
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes pulseNode {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
 
-    <rect x="12" y="0" width="4" height="2" fill="#b7ff3c" />
-    <rect x="14" y="2" width="2" height="2" fill="#b7ff3c" />
+    .cursor-blink {
+      animation: blink 1s infinite step-start;
+    }
+    .node-pulse {
+      animation: pulseNode 3s infinite ease-in-out;
+      transform-origin: center;
+    }
 
-    <rect x="0" y="14" width="4" height="2" fill="#b7ff3c" />
-    <rect x="0" y="12" width="2" height="2" fill="#b7ff3c" />
+    @media (prefers-reduced-motion: reduce) {
+      .cursor-blink, .node-pulse, * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 
-    <rect x="12" y="14" width="4" height="2" fill="#b7ff3c" />
-    <rect x="14" y="12" width="2" height="2" fill="#b7ff3c" />
+  <rect width="96" height="96" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2" />
+  <g transform="translate(0, 0) scale(1.0000)">
+    <!-- 8px Grid Outer Corner Brackets (Cells 1,1; 10,1; 1,10; 10,10) -->
+    <!-- Top-Left -->
+    <rect x="8" y="8" width="16" height="8" fill="#30363d" />
+    <rect x="8" y="16" width="8" height="16" fill="#30363d" />
 
-    <!-- Center Geometric Core Node -->
-    <rect x="6" y="6" width="4" height="4" fill="#58a6ff" />
+    <!-- Top-Right -->
+    <rect x="72" y="8" width="16" height="8" fill="#30363d" />
+    <rect x="80" y="16" width="8" height="16" fill="#30363d" />
+
+    <!-- Bottom-Left -->
+    <rect x="8" y="80" width="16" height="8" fill="#30363d" />
+    <rect x="8" y="64" width="8" height="16" fill="#30363d" />
+
+    <!-- Bottom-Right -->
+    <rect x="72" y="80" width="16" height="8" fill="#30363d" />
+    <rect x="80" y="64" width="8" height="16" fill="#30363d" />
+
+    <!-- Terminal Chevron '>' Silhouette (Cells 3,3 to 6,5 to 3,8) -->
+    <rect x="24" y="24" width="8" height="8" fill="#58a6ff" />
+    <rect x="32" y="32" width="8" height="8" fill="#58a6ff" />
+    <rect x="40" y="40" width="8" height="8" fill="#58a6ff" />
+    <rect x="48" y="40" width="8" height="8" fill="#58a6ff" />
+    <rect x="40" y="48" width="8" height="8" fill="#58a6ff" />
+    <rect x="32" y="56" width="8" height="8" fill="#58a6ff" />
+    <rect x="24" y="64" width="8" height="8" fill="#58a6ff" />
+
+    <!-- The Signature Lime-Green Signal Block (16x16: Cells 7,6 & 8,6) -->
+    <rect x="56" y="48" width="16" height="16" rx="2" fill="#b7ff3c" class="node-pulse" />
+
+    <!-- Optional Accent Orange Pixel (Cell 7,4) -->
+    <rect x="56" y="32" width="8" height="8" rx="1" fill="#ff8a3d" />
+
+    <!-- Auxiliary Data Node (Cell 8,9) -->
+    <rect x="64" y="72" width="8" height="8" rx="1" fill="#8b949e" />
   </g>
 </svg>

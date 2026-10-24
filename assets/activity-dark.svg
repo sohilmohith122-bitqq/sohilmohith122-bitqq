@@ -10,12 +10,12 @@
       50%, 100% { opacity: 0; }
     }
     @keyframes pulseNode {
-      0%, 100% { transform: scale(1); opacity: 0.85; }
-      50% { transform: scale(1.15); opacity: 1; }
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.08); opacity: 1; }
     }
 
     .cursor-blink {
-      animation: blink 0.9s infinite step-start;
+      animation: blink 1s infinite step-start;
     }
     .node-pulse {
       animation: pulseNode 3s infinite ease-in-out;
@@ -32,142 +32,92 @@
 
   <rect x="1" y="1" width="958" height="148" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="2" />
 
-  <!-- Header -->
   <text x="36" y="24" class="mono bold" font-size="11" fill="#b7ff3c">&gt; 12-WEEK COMMIT VELOCITY MATRIX</text>
   <text x="924" y="24" text-anchor="end" class="mono" font-size="10" fill="#8b949e">TOTAL: <tspan fill="#e6edf3" font-weight="700">367</tspan> COMMITS</text>
   <line x1="36" y1="30" x2="924" y2="30" stroke="#30363d" stroke-width="1" />
 
-  <!-- Heatmap Columns -->
   
       <g>
-        <!-- Background Track -->
         <rect x="36" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="36" y="100" width="48" height="15" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="60" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">12</text>
-        <!-- Week Label -->
         <text x="60" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-12</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="111" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="111" y="92" width="48" height="23" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="135" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">18</text>
-        <!-- Week Label -->
         <text x="135" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-11</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="186" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="186" y="97" width="48" height="18" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="210" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">14</text>
-        <!-- Week Label -->
         <text x="210" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-10</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="261" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="261" y="84" width="48" height="31" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="285" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">25</text>
-        <!-- Week Label -->
         <text x="285" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-9</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="336" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="336" y="77" width="48" height="38" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="360" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">30</text>
-        <!-- Week Label -->
         <text x="360" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-8</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="411" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="411" y="87" width="48" height="28" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="435" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">22</text>
-        <!-- Week Label -->
         <text x="435" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-7</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="486" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="486" y="67" width="48" height="48" rx="3" fill="#b7ff3c" />
-        <!-- Commit Count inside / above bar -->
         <text x="510" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">38</text>
-        <!-- Week Label -->
         <text x="510" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-6</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="561" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="561" y="79" width="48" height="36" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="585" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">29</text>
-        <!-- Week Label -->
         <text x="585" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-5</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="636" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="636" y="72" width="48" height="43" rx="3" fill="#58a6ff" />
-        <!-- Commit Count inside / above bar -->
         <text x="660" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">34</text>
-        <!-- Week Label -->
         <text x="660" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-4</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="711" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="711" y="59" width="48" height="56" rx="3" fill="#b7ff3c" />
-        <!-- Commit Count inside / above bar -->
         <text x="735" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">45</text>
-        <!-- Week Label -->
         <text x="735" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-3</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="786" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="786" y="50" width="48" height="65" rx="3" fill="#b7ff3c" />
-        <!-- Commit Count inside / above bar -->
         <text x="810" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">52</text>
-        <!-- Week Label -->
         <text x="810" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">W-2</text>
       </g>
 
       <g>
-        <!-- Background Track -->
         <rect x="861" y="50" width="48" height="65" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="861" y="55" width="48" height="60" rx="3" fill="#b7ff3c" />
-        <!-- Commit Count inside / above bar -->
         <text x="885" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="#e6edf3">48</text>
-        <!-- Week Label -->
         <text x="885" y="132" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">NOW</text>
       </g>
 </svg>

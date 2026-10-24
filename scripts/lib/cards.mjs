@@ -1,9 +1,23 @@
 /**
- * @fileoverview Project Arcade card renderer for collectible 2D levels.
+ * @fileoverview Project Arcade card renderer for collectible 2D levels (480 x 270).
  */
 
 import { escapeXml, PALETTE } from './svg.mjs';
-import { renderPixelCursor, commonStyles } from './motifs.mjs';
+import { renderSohilSignal, commonStyles } from './motifs.mjs';
+
+/**
+ * Maps repository to category label.
+ * @param {string} name
+ * @returns {string}
+ */
+function getCategoryLabel(name = '') {
+  const n = name.toUpperCase();
+  if (n.includes('DERMA') || n.includes('VORTEX')) return 'APPLIED_AI / COMPUTER_VISION';
+  if (n.includes('ANOMALY') || n.includes('NETWORK')) return 'SYSTEMS / TELEMETRY';
+  if (n.includes('MEDSCOPE')) return 'HEALTHCARE / TIMELINE_ENGINE';
+  if (n.includes('NEMESIS')) return 'AUTONOMOUS / AUDIO_SECURITY';
+  return 'CORE_ENGINEERING';
+}
 
 /**
  * Renders a bespoke 2D vector motif scene for a project based on its category.
@@ -15,65 +29,64 @@ import { renderPixelCursor, commonStyles } from './motifs.mjs';
 function renderCardScene(motifType, theme, accent) {
   switch (motifType) {
     case 'neural':
-      // Connected neural nodes and scanning target
+      // Connected neural nodes and analytical scanning panel
       return `
         <g transform="translate(18, 52)">
-          <!-- Background Grid Plane -->
-          <rect width="404" height="64" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
+          <rect width="444" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.2" />
           
           <!-- Neural Graph Nodes & Links -->
-          <line x1="40" y1="32" x2="110" y2="18" stroke="${accent}" stroke-width="2" />
-          <line x1="40" y1="32" x2="110" y2="46" stroke="${accent}" stroke-width="2" />
-          <line x1="110" y1="18" x2="190" y2="32" stroke="${accent}" stroke-width="2" />
-          <line x1="110" y1="46" x2="190" y2="32" stroke="${accent}" stroke-width="2" />
-          <line x1="190" y1="32" x2="270" y2="18" stroke="${theme.blue}" stroke-width="2" />
-          <line x1="190" y1="32" x2="270" y2="46" stroke="${theme.blue}" stroke-width="2" />
-          <line x1="270" y1="18" x2="350" y2="32" stroke="${theme.blue}" stroke-width="2" />
-          <line x1="270" y1="46" x2="350" y2="32" stroke="${theme.blue}" stroke-width="2" />
+          <line x1="45" y1="37" x2="120" y2="20" stroke="${accent}" stroke-width="2" />
+          <line x1="45" y1="37" x2="120" y2="54" stroke="${accent}" stroke-width="2" />
+          <line x1="120" y1="20" x2="210" y2="37" stroke="${accent}" stroke-width="2" />
+          <line x1="120" y1="54" x2="210" y2="37" stroke="${accent}" stroke-width="2" />
+          <line x1="210" y1="37" x2="300" y2="20" stroke="${theme.blue}" stroke-width="2" />
+          <line x1="210" y1="37" x2="300" y2="54" stroke="${theme.blue}" stroke-width="2" />
+          <line x1="300" y1="20" x2="390" y2="37" stroke="${theme.blue}" stroke-width="2" />
+          <line x1="300" y1="54" x2="390" y2="37" stroke="${theme.blue}" stroke-width="2" />
 
           <!-- Nodes -->
-          <circle cx="40" cy="32" r="5" fill="${accent}" />
-          <circle cx="110" cy="18" r="4.5" fill="${theme.surface}" stroke="${accent}" stroke-width="2" />
-          <circle cx="110" cy="46" r="4.5" fill="${theme.surface}" stroke="${accent}" stroke-width="2" />
+          <circle cx="45" cy="37" r="5.5" fill="${accent}" />
+          <circle cx="120" cy="20" r="5" fill="${theme.surface}" stroke="${accent}" stroke-width="2" />
+          <circle cx="120" cy="54" r="5" fill="${theme.surface}" stroke="${accent}" stroke-width="2" />
           
           <!-- Central Pulse Node -->
-          <circle cx="190" cy="32" r="6" fill="${accent}" class="node-pulse" />
+          <circle cx="210" cy="37" r="7" fill="${accent}" class="node-pulse" />
           
-          <circle cx="270" cy="18" r="4.5" fill="${theme.surface}" stroke="${theme.blue}" stroke-width="2" />
-          <circle cx="270" cy="46" r="4.5" fill="${theme.surface}" stroke="${theme.blue}" stroke-width="2" />
-          <circle cx="350" cy="32" r="5" fill="${theme.blue}" />
+          <circle cx="300" cy="20" r="5" fill="${theme.surface}" stroke="${theme.blue}" stroke-width="2" />
+          <circle cx="300" cy="54" r="5" fill="${theme.surface}" stroke="${theme.blue}" stroke-width="2" />
+          <circle cx="390" cy="37" r="5.5" fill="${theme.blue}" />
 
           <!-- Target Scan Brackets -->
-          <rect x="178" y="20" width="24" height="2" fill="${theme.muted}" />
-          <rect x="178" y="42" width="24" height="2" fill="${theme.muted}" />
+          <rect x="196" y="22" width="28" height="2" fill="${theme.muted}" />
+          <rect x="196" y="50" width="28" height="2" fill="${theme.muted}" />
         </g>
       `;
 
     case 'telemetry':
-      // Telemetry stream and server rack
+      // Telemetry stream and connected server rack
       return `
         <g transform="translate(18, 52)">
-          <rect width="404" height="64" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
-          <!-- Mini Server Unit -->
-          <rect x="25" y="14" width="70" height="36" rx="3" fill="${theme.surface}" stroke="${accent}" stroke-width="1.5" />
-          <line x1="32" y1="24" x2="70" y2="24" stroke="${theme.muted}" stroke-width="1.5" />
-          <line x1="32" y1="32" x2="60" y2="32" stroke="${theme.muted}" stroke-width="1.5" />
-          <circle cx="85" cy="24" r="2.5" fill="${accent}" />
-          <circle cx="85" cy="32" r="2.5" fill="${theme.blue}" />
+          <rect width="444" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.2" />
+          <!-- Server Module Unit -->
+          <rect x="25" y="16" width="80" height="42" rx="3" fill="${theme.surface}" stroke="${accent}" stroke-width="1.5" />
+          <line x1="33" y1="28" x2="75" y2="28" stroke="${theme.muted}" stroke-width="1.5" />
+          <line x1="33" y1="38" x2="65" y2="38" stroke="${theme.muted}" stroke-width="1.5" />
+          <circle cx="95" cy="28" r="2.5" fill="${accent}" />
+          <circle cx="95" cy="38" r="2.5" fill="${theme.blue}" />
 
-          <!-- Pulse Stream Bar Graph -->
-          <g transform="translate(125, 14)">
-            <rect x="0" y="24" width="8" height="12" fill="${accent}" />
-            <rect x="16" y="16" width="8" height="20" fill="${accent}" />
-            <rect x="32" y="8" width="8" height="28" fill="${theme.orange}" />
-            <rect x="48" y="20" width="8" height="16" fill="${accent}" />
-            <rect x="64" y="4" width="8" height="32" fill="${theme.pink}" />
-            <rect x="80" y="14" width="8" height="22" fill="${accent}" />
-            <rect x="96" y="26" width="8" height="10" fill="${theme.muted}" />
+          <!-- Telemetry Pulse Histogram -->
+          <g transform="translate(135, 16)">
+            <rect x="0" y="28" width="8" height="14" fill="${accent}" />
+            <rect x="16" y="18" width="8" height="24" fill="${accent}" />
+            <rect x="32" y="8" width="8" height="34" fill="${theme.orange}" />
+            <rect x="48" y="22" width="8" height="20" fill="${accent}" />
+            <rect x="64" y="4" width="8" height="38" fill="${theme.pink}" />
+            <rect x="80" y="16" width="8" height="26" fill="${accent}" />
+            <rect x="96" y="30" width="8" height="12" fill="${theme.muted}" />
           </g>
 
-          <!-- Waveform Line -->
-          <path d="M 250,32 L 280,32 L 290,14 L 305,48 L 320,18 L 335,32 L 380,32" fill="none" stroke="${accent}" stroke-width="2" />
+          <!-- Waveform Stream -->
+          <path d="M 270,37 L 305,37 L 315,16 L 332,58 L 350,22 L 368,37 L 420,37" fill="none" stroke="${accent}" stroke-width="2" />
         </g>
       `;
 
@@ -81,19 +94,19 @@ function renderCardScene(motifType, theme, accent) {
       // Clinical browser timeline pane
       return `
         <g transform="translate(18, 52)">
-          <rect width="404" height="64" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
+          <rect width="444" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.2" />
           <!-- Browser Header Bar -->
-          <rect x="25" y="12" width="354" height="14" rx="2" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
-          <circle cx="34" cy="19" r="2" fill="${theme.pink}" />
-          <circle cx="42" cy="19" r="2" fill="${theme.orange}" />
-          <circle cx="50" cy="19" r="2" fill="${accent}" />
+          <rect x="25" y="12" width="394" height="16" rx="2" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
+          <circle cx="36" cy="20" r="2.5" fill="${theme.pink}" />
+          <circle cx="46" cy="20" r="2.5" fill="${theme.orange}" />
+          <circle cx="56" cy="20" r="2.5" fill="${accent}" />
           
-          <!-- Chronological Anchors -->
-          <line x1="45" y1="44" x2="360" y2="44" stroke="${theme.border}" stroke-width="2" />
-          <rect x="75" y="38" width="12" height="12" rx="2" fill="${accent}" />
-          <rect x="165" y="38" width="12" height="12" rx="2" fill="${theme.blue}" />
-          <rect x="255" y="38" width="12" height="12" rx="2" fill="${theme.violet}" />
-          <rect x="330" y="38" width="12" height="12" rx="2" fill="${accent}" />
+          <!-- Chronological Timeline Path -->
+          <line x1="45" y1="48" x2="400" y2="48" stroke="${theme.border}" stroke-width="2" />
+          <rect x="85" y="41" width="14" height="14" rx="2" fill="${accent}" />
+          <rect x="185" y="41" width="14" height="14" rx="2" fill="${theme.blue}" />
+          <rect x="285" y="41" width="14" height="14" rx="2" fill="${theme.violet}" />
+          <rect x="370" y="41" width="14" height="14" rx="2" fill="${accent}" />
         </g>
       `;
 
@@ -102,30 +115,30 @@ function renderCardScene(motifType, theme, accent) {
       // Dual-loop terminal & audio waveforms
       return `
         <g transform="translate(18, 52)">
-          <rect width="404" height="64" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
+          <rect width="444" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.2" />
           <!-- Mini Terminal Pane -->
-          <rect x="25" y="14" width="160" height="36" rx="3" fill="${theme.surface}" stroke="${accent}" stroke-width="1.5" />
-          <text x="35" y="30" class="mono bold" font-size="9" fill="${accent}">&gt; vad.stream</text>
-          <text x="35" y="42" class="mono" font-size="8" fill="${theme.muted}">2-way duplex ok</text>
+          <rect x="25" y="15" width="180" height="44" rx="3" fill="${theme.surface}" stroke="${accent}" stroke-width="1.5" />
+          <text x="35" y="32" class="mono bold" font-size="9" fill="${accent}">&gt; vad.stream --cuda</text>
+          <text x="35" y="46" class="mono" font-size="8" fill="${theme.muted}">2-way duplex link: ok</text>
 
           <!-- Audio Frequency Bars -->
-          <g transform="translate(215, 20)">
-            <rect x="0" y="8" width="4" height="16" fill="${accent}" />
-            <rect x="10" y="2" width="4" height="22" fill="${accent}" />
-            <rect x="20" y="0" width="4" height="26" fill="${theme.blue}" />
-            <rect x="30" y="6" width="4" height="20" fill="${theme.blue}" />
-            <rect x="40" y="10" width="4" height="14" fill="${accent}" />
-            <rect x="50" y="4" width="4" height="22" fill="${theme.orange}" />
-            <rect x="60" y="12" width="4" height="12" fill="${theme.muted}" />
-            <rect x="70" y="8" width="4" height="16" fill="${accent}" />
-            <rect x="80" y="2" width="4" height="24" fill="${theme.blue}" />
-            <rect x="90" y="9" width="4" height="14" fill="${accent}" />
-            <rect x="100" y="13" width="4" height="8" fill="${theme.muted}" />
+          <g transform="translate(235, 22)">
+            <rect x="0" y="10" width="5" height="18" fill="${accent}" />
+            <rect x="12" y="3" width="5" height="25" fill="${accent}" />
+            <rect x="24" y="0" width="5" height="28" fill="${theme.blue}" />
+            <rect x="36" y="8" width="5" height="20" fill="${theme.blue}" />
+            <rect x="48" y="12" width="5" height="16" fill="${accent}" />
+            <rect x="60" y="5" width="5" height="23" fill="${theme.orange}" />
+            <rect x="72" y="14" width="5" height="14" fill="${theme.muted}" />
+            <rect x="84" y="10" width="5" height="18" fill="${accent}" />
+            <rect x="96" y="2" width="5" height="26" fill="${theme.blue}" />
+            <rect x="108" y="11" width="5" height="17" fill="${accent}" />
+            <rect x="120" y="15" width="5" height="13" fill="${theme.muted}" />
           </g>
 
-          <line x1="335" y1="16" x2="335" y2="48" stroke="${theme.border}" stroke-width="1" />
-          <circle cx="360" cy="32" r="7" fill="${theme.surface}" stroke="${accent}" stroke-width="2" />
-          <circle cx="360" cy="32" r="3" fill="${accent}" />
+          <line x1="375" y1="18" x2="375" y2="56" stroke="${theme.border}" stroke-width="1" />
+          <circle cx="405" cy="37" r="8" fill="${theme.surface}" stroke="${accent}" stroke-width="2" />
+          <circle cx="405" cy="37" r="3.5" fill="${accent}" />
         </g>
       `;
   }
@@ -139,20 +152,20 @@ function renderCardScene(motifType, theme, accent) {
  */
 export function classifyMotif(name = '', desc = '') {
   const text = `${name} ${desc}`.toLowerCase();
-  if (text.includes('dermatol') || text.includes('vortex') || text.includes('vision') || text.includes('medscope') && text.includes('model')) {
+  if (text.includes('dermatol') || text.includes('vortex') || text.includes('vision')) {
     return 'neural';
   }
-  if (text.includes('anomaly') || text.includes('network') || text.includes('telemetry') || text.includes('security')) {
+  if (text.includes('anomaly') || text.includes('network') || text.includes('telemetry')) {
     return 'telemetry';
   }
-  if (text.includes('clinical') || text.includes('record') || text.includes('timeline') || text.includes('medscope')) {
+  if (text.includes('clinical') || text.includes('timeline') || text.includes('medscope')) {
     return 'timeline';
   }
   return 'terminal';
 }
 
 /**
- * Renders a complete collectible Project Arcade card.
+ * Renders a complete collectible Project Arcade card (480 x 270).
  * @param {object} options
  * @param {string} options.level - e.g. "LVL 01"
  * @param {string} options.name - Repository name
@@ -167,7 +180,7 @@ export function renderProjectCard({
   level = 'LVL 01',
   name = 'PROJECT',
   description = 'Autonomous developer universe prototype',
-  tags = ['TypeScript', 'AI', 'Vite'],
+  tags = ['TypeScript', 'React 19', 'Vite'],
   url = 'https://github.com/sohilmohith122-bitqq',
   language = 'TypeScript',
   mode = 'dark'
@@ -175,6 +188,7 @@ export function renderProjectCard({
   const theme = PALETTE[mode];
   const accent = language === 'Python' ? theme.orange : theme.lime;
   const motif = classifyMotif(name, description);
+  const categoryLabel = getCategoryLabel(name);
   const scene = renderCardScene(motif, theme, accent);
 
   let currentX = 18;
@@ -182,63 +196,68 @@ export function renderProjectCard({
     .slice(0, 3)
     .map(tag => {
       const tagText = escapeXml(tag);
-      const pillWidth = Math.min(102, Math.max(54, Math.round(tag.length * 7.4 + 14)));
-      if (currentX + pillWidth > 342) return '';
+      const pillWidth = Math.min(108, Math.max(54, Math.round(tag.length * 7.4 + 14)));
+      if (currentX + pillWidth > 380) return '';
       const markup = `
-      <g transform="translate(${currentX}, 206)">
-        <rect width="${pillWidth}" height="20" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
-        <text x="${Math.round(pillWidth / 2)}" y="14" text-anchor="middle" class="mono" font-size="10" fill="${theme.text}">${tagText}</text>
+      <g transform="translate(${currentX}, 232)">
+        <rect width="${pillWidth}" height="22" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
+        <text x="${Math.round(pillWidth / 2)}" y="15" text-anchor="middle" class="mono" font-size="10" fill="${theme.text}">${tagText}</text>
       </g>`;
-      currentX += pillWidth + 6;
+      currentX += pillWidth + 8;
       return markup;
     })
     .filter(Boolean)
     .join('\n');
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 240" width="440" height="240">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270">
   <title>${escapeXml(name)} - ${escapeXml(level)}</title>
   <desc>${escapeXml(description)}</desc>
 
   <style>
     ${commonStyles()}
-    .card-title { font-size: 14px; font-weight: 700; fill: ${theme.text}; letter-spacing: 0.5px; }
+    .card-title { font-size: 15px; font-weight: 700; fill: ${theme.text}; letter-spacing: 0.5px; }
     .card-desc { font-size: 11px; fill: ${theme.muted}; }
     .card-link { font-size: 11px; font-weight: 700; fill: ${accent}; }
+    .category-label { font-size: 9px; font-weight: 700; fill: ${theme.muted}; letter-spacing: 1px; }
   </style>
 
   <a href="${escapeXml(url)}" target="_blank" rel="noopener noreferrer">
     <!-- Card Outer Frame -->
-    <rect x="1" y="1" width="438" height="238" rx="8" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
-    <rect x="3" y="3" width="434" height="234" rx="6" fill="none" stroke="${accent}" stroke-opacity="0.12" stroke-width="1" />
+    <rect x="1" y="1" width="478" height="268" rx="8" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
+    <rect x="3" y="3" width="474" height="264" rx="6" fill="none" stroke="${accent}" stroke-opacity="0.12" stroke-width="1" />
 
-    <!-- Top Navigation Bar -->
-    <rect x="2" y="2" width="436" height="36" rx="6" fill="${theme.bg}" />
-    <line x1="2" y1="38" x2="438" y2="38" stroke="${theme.border}" stroke-width="1.5" />
+    <!-- Top Technical Banner -->
+    <rect x="2" y="2" width="476" height="38" rx="6" fill="${theme.bg}" />
+    <line x1="2" y1="40" x2="478" y2="40" stroke="${theme.border}" stroke-width="1.5" />
 
-    <!-- Pixel Cursor & Level Identifier -->
-    ${renderPixelCursor({ x: 16, y: 11, size: 16, color: accent, accentColor: theme.blue })}
-    <text x="40" y="22" class="mono bold" font-size="11" fill="${accent}">${escapeXml(level)}</text>
-    <text x="105" y="22" class="mono" font-size="11" fill="${theme.muted}">// COLLECTIBLE REPO</text>
+    <!-- Brand Symbol Sequence Badge -->
+    ${renderSohilSignal({ x: 14, y: 11, size: 18, mode, showOrangePixel: false })}
+    <text x="38" y="24" class="mono bold" font-size="11" fill="${accent}">${escapeXml(level)}</text>
+    <text x="100" y="24" class="mono category-label">// ${escapeXml(categoryLabel)}</text>
 
-    <!-- Status Indicator -->
-    <circle cx="410" cy="20" r="3.5" fill="${accent}" />
-    <text x="400" y="23" text-anchor="end" class="mono bold" font-size="10" fill="${theme.muted}">ACTIVE</text>
+    <!-- Active Indicator -->
+    <circle cx="452" cy="21" r="3.5" fill="${accent}" />
+    <text x="442" y="24" text-anchor="end" class="mono bold" font-size="9" fill="${theme.muted}">ONLINE</text>
 
     <!-- 2D Vector Motif Scene -->
     ${scene}
 
     <!-- Content Area: Name & Factual Description -->
-    <text x="18" y="142" class="mono card-title">${escapeXml(name)}</text>
-    <text x="18" y="162" class="mono card-desc">${escapeXml(description.length > 58 ? description.slice(0, 55) + '...' : description)}</text>
-    <text x="18" y="178" class="mono card-desc">${escapeXml(description.length > 58 ? description.slice(55, 115) : '')}</text>
+    <text x="18" y="156" class="mono card-title">${escapeXml(name)}</text>
+    ${
+      description.length <= 64
+        ? `<text x="18" y="184" class="mono card-desc">${escapeXml(description)}</text>`
+        : `<text x="18" y="176" class="mono card-desc">${escapeXml(description.slice(0, 60))}...</text>
+    <text x="18" y="194" class="mono card-desc">${escapeXml(description.slice(60, 125))}</text>`
+    }
 
     <!-- Technology Tags -->
     ${tagsMarkup}
 
     <!-- Access CTA Button -->
-    <g transform="translate(348, 206)">
-      <rect width="74" height="20" rx="4" fill="${theme.bg}" stroke="${accent}" stroke-width="1.2" />
-      <text x="37" y="14" text-anchor="middle" class="mono card-link">VIEW ↗</text>
+    <g transform="translate(390, 232)">
+      <rect width="72" height="22" rx="4" fill="${theme.bg}" stroke="${accent}" stroke-width="1.2" />
+      <text x="36" y="15" text-anchor="middle" class="mono card-link">VIEW ↗</text>
     </g>
   </a>
 </svg>`;

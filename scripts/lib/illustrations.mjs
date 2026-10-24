@@ -1,12 +1,17 @@
 /**
- * @fileoverview High-craft flat 2D vector illustrations for SOHIL.exe Universe.
+ * @fileoverview High-craft flat 2D vector illustrations for SOHIL.exe — CODE / FORM.
+ * Follows the 3-column composition: Left (Identity), Center (Workstation), Right (Digital Universe).
  */
 
 import { escapeXml, fontStack, PALETTE } from './svg.mjs';
-import { renderPixelCursor, commonStyles } from './motifs.mjs';
+import { renderSohilSignal, commonStyles } from './motifs.mjs';
 
 /**
- * Generates the "Chaotic Workstation" Hero banner (960 x 320).
+ * Generates the original 2D Hero Artwork (960 x 320).
+ * Left: Identity & The Sohil Signal.
+ * Center: Workstation, Laptop, Terminal & Details.
+ * Right: Digital Universe, Architectural Windows & Vertical Sequence.
+ *
  * @param {'dark'|'light'} [mode='dark']
  * @returns {string}
  */
@@ -15,175 +20,195 @@ export function generateHeroSvg(mode = 'dark') {
   const accent = theme.lime;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="100%" height="320">
-  <title>SOHIL.exe - The 2D Developer Universe</title>
-  <desc>Original flat 2D vector workstation illustration featuring desktop terminal, floating code panes, pixel plant, and celestial window.</desc>
+  <title>SOHIL.exe - CODE / FORM - The 2D Developer Universe</title>
+  <desc>Original flat 2D vector artwork composed of identity masthead, miniature developer workstation, and digital architectural universe.</desc>
 
   <style>
     ${commonStyles()}
-    .banner-title { font-size: 13px; font-weight: 700; fill: ${theme.text}; letter-spacing: 1px; }
-    .term-text { font-size: 11px; fill: ${theme.text}; }
-    .muted-text { font-size: 10px; fill: ${theme.muted}; }
+    .brand-title { font-size: 20px; font-weight: 700; fill: ${theme.text}; letter-spacing: 1.5px; }
+    .brand-sub { font-size: 11px; font-weight: 700; fill: ${accent}; letter-spacing: 2px; }
+    .tagline-text { font-size: 10px; fill: ${theme.muted}; letter-spacing: 0.5px; }
+    .term-text { font-size: 10px; fill: ${theme.text}; }
+    .seq-text { font-size: 10px; font-weight: 700; fill: ${theme.muted}; letter-spacing: 1.5px; }
   </style>
 
-  <!-- Outer Canvas Frame -->
+  <!-- Canvas Frame -->
   <rect x="1" y="1" width="958" height="318" rx="8" fill="${theme.bg}" stroke="${theme.border}" stroke-width="2" />
   <rect x="3" y="3" width="954" height="314" rx="6" fill="none" stroke="${accent}" stroke-opacity="0.1" stroke-width="1" />
 
-  <!-- Top System Bar -->
-  <rect x="2" y="2" width="956" height="34" rx="6" fill="${theme.surface}" />
-  <line x1="2" y1="36" x2="958" y2="36" stroke="${theme.border}" stroke-width="1.5" />
+  <!-- Top Technical Chrome Bar -->
+  <rect x="2" y="2" width="956" height="30" rx="6" fill="${theme.surface}" />
+  <line x1="2" y1="32" x2="958" y2="32" stroke="${theme.border}" stroke-width="1.5" />
 
-  <!-- Pixel Cursor Signature & Universe Identifier -->
-  ${renderPixelCursor({ x: 20, y: 10, size: 16, color: accent, accentColor: theme.blue })}
-  <text x="44" y="22" class="mono banner-title">SOHIL.exe <tspan fill="${theme.muted}">// THE 2D DEVELOPER UNIVERSE</tspan></text>
-  
-  <circle cx="910" cy="18" r="4" fill="${accent}" class="node-pulse" />
-  <text x="898" y="22" text-anchor="end" class="mono bold" font-size="10" fill="${theme.muted}">SYS: ONLINE</text>
+  <text x="24" y="20" class="mono" font-size="10" fill="${theme.muted}">SOHIL.exe // BUILD_ENV: 2D_FLAT // VER: 2026.1</text>
+  <circle cx="928" cy="17" r="3.5" fill="${accent}" class="node-pulse" />
+  <text x="918" y="20" text-anchor="end" class="mono bold" font-size="9" fill="${theme.muted}">SYS: ONLINE</text>
 
-  <!-- BACKGROUND: Geometric Sky Window with Crescent Moon -->
-  <g transform="translate(760, 56)">
-    <!-- Window Frame -->
-    <rect width="160" height="90" rx="6" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
-    <line x1="0" y1="45" x2="160" y2="45" stroke="${theme.border}" stroke-width="1" stroke-dasharray="3 3" />
-    <line x1="80" y1="0" x2="80" y2="90" stroke="${theme.border}" stroke-width="1" stroke-dasharray="3 3" />
+  <!-- ===================================================================== -->
+  <!-- COLUMN 1: LEFT IDENTITY (x: 24 to 280)                                -->
+  <!-- ===================================================================== -->
+  <g transform="translate(28, 52)">
+    <!-- Brand Box Container -->
+    <rect width="250" height="242" rx="6" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1.5" />
+    <rect x="10" y="10" width="230" height="2" fill="${accent}" />
 
-    <!-- Crescent Moon (Pure 2D Flat Geometric Circles) -->
-    <circle cx="120" cy="35" r="18" fill="${theme.orange}" />
-    <circle cx="127" cy="30" r="15" fill="${theme.surface}" />
+    <!-- The Sohil Signal Brand Symbol (48px scale variant) -->
+    ${renderSohilSignal({ x: 20, y: 22, size: 48, mode, showOrangePixel: true })}
 
-    <!-- 4 Twinkling Pixel Stars -->
-    <rect x="35" y="22" width="4" height="4" fill="${accent}" />
-    <rect x="60" y="32" width="3" height="3" fill="${theme.text}" />
-    <rect x="42" y="65" width="3" height="3" fill="${theme.blue}" />
-    <rect x="135" y="68" width="4" height="4" fill="${accent}" />
-  </g>
+    <!-- Brand Typography -->
+    <text x="80" y="44" class="mono brand-title">SOHIL.exe</text>
+    <text x="80" y="60" class="mono brand-sub">CODE / FORM</text>
 
-  <!-- NETWORK: Connected Micro-Nodes Linking Workstation to Floating Panes -->
-  <g stroke="${theme.border}" stroke-width="1.5" stroke-dasharray="4 4">
-    <line x1="430" y1="130" x2="520" y2="85" />
-    <line x1="520" y1="85" x2="760" y2="100" />
-    <line x1="430" y1="180" x2="540" y2="210" />
-    <line x1="680" y1="210" x2="740" y2="210" />
-  </g>
-  <!-- Micro Node Dots -->
-  <circle cx="520" cy="85" r="3.5" fill="${accent}" />
-  <circle cx="540" cy="210" r="3.5" fill="${theme.blue}" />
+    <!-- Divider line -->
+    <line x1="20" y1="84" x2="230" y2="84" stroke="${theme.border}" stroke-width="1" />
 
-  <!-- WORKSTATION: Main Flat 2D Computer & Terminal -->
-  <g transform="translate(45, 68)">
-    <!-- Monitor Bezel Outer Frame -->
-    <rect width="380" height="200" rx="8" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
-    
-    <!-- Monitor Stand Base -->
-    <rect x="165" y="200" width="50" height="24" fill="${theme.border}" />
-    <rect x="135" y="224" width="110" height="6" rx="3" fill="${theme.border}" />
+    <!-- Tagline & Core Philosophy -->
+    <text x="20" y="106" class="mono bold" font-size="10" fill="${theme.text}">PHILOSOPHY:</text>
+    <text x="20" y="124" class="mono" font-size="10" fill="${accent}">IDEAS → CODE → IMPACT</text>
 
-    <!-- Monitor Inner Screen Display -->
-    <rect x="12" y="12" width="356" height="176" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.5" />
+    <!-- Terminal-inspired Micro-Labels -->
+    <g transform="translate(20, 148)">
+      <rect width="96" height="18" rx="3" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
+      <text x="8" y="12" class="mono" font-size="9" fill="${theme.blue}">[ ARCH: 2D ]</text>
 
-    <!-- Terminal Window Chrome inside Monitor -->
-    <rect x="12" y="12" width="356" height="22" rx="4" fill="${theme.surface}" />
-    <circle cx="26" cy="23" r="3" fill="${theme.pink}" />
-    <circle cx="36" cy="23" r="3" fill="${theme.orange}" />
-    <circle cx="46" cy="23" r="3" fill="${accent}" />
-    <text x="60" y="26" class="mono" font-size="9" fill="${theme.muted}">sohil@universe: ~/core</text>
-
-    <!-- Terminal Content & Logs -->
-    <g transform="translate(26, 54)">
-      <text x="0" y="0" class="mono term-text"><tspan fill="${accent}">$</tspan> sohil.boot --autonomous</text>
-      <text x="0" y="20" class="mono term-text"><tspan fill="${accent}">[OK]</tspan> loaded 2d_vector_art_subsystem</text>
-      <text x="0" y="38" class="mono term-text"><tspan fill="${accent}">[OK]</tspan> 4 verified projects online</text>
-      <text x="0" y="56" class="mono term-text"><tspan fill="${theme.orange}">[INFO]</tspan> tea.daemon: brewed hot</text>
-      <text x="0" y="78" class="mono term-text"><tspan fill="${theme.blue}">❯</tspan> architecting systems<tspan class="cursor-blink" fill="${accent}"> ▋</tspan></text>
+      <rect x="106" width="104" height="18" rx="3" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
+      <text x="114" y="12" class="mono" font-size="9" fill="${theme.orange}">[ STACK: TS/PY ]</text>
     </g>
 
-    <!-- Keyboard Flat Base & Trackpad -->
-    <g transform="translate(25, 235)">
-      <rect width="330" height="10" rx="3" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1.5" />
-      <rect x="140" y="3" width="50" height="4" rx="1" fill="${theme.border}" />
+    <!-- Micro System Status -->
+    <text x="20" y="196" class="mono" font-size="9" fill="${theme.muted}">&gt; telemetry: verified</text>
+    <text x="20" y="212" class="mono" font-size="9" fill="${theme.muted}">&gt; domain: full-stack/ai</text>
+    <text x="20" y="228" class="mono" font-size="9" fill="${accent}">&gt; ready for input<tspan class="cursor-blink"> ▋</tspan></text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 2: CENTER WORKSTATION (x: 298 to 670)                          -->
+  <!-- ===================================================================== -->
+  <g transform="translate(300, 52)">
+    <!-- Workstation Container Panel -->
+    <rect width="360" height="242" rx="6" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1.5" />
+
+    <!-- Developer Laptop / Terminal -->
+    <g transform="translate(24, 20)">
+      <!-- Monitor Bezel -->
+      <rect width="312" height="160" rx="6" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.5" />
+      
+      <!-- Terminal Window Chrome -->
+      <rect width="312" height="20" rx="5" fill="${theme.surface}" />
+      <line x1="0" y1="20" x2="312" y2="20" stroke="${theme.border}" stroke-width="1" />
+      <circle cx="14" cy="10" r="2.5" fill="${theme.pink}" />
+      <circle cx="22" cy="10" r="2.5" fill="${theme.orange}" />
+      <circle cx="30" cy="10" r="2.5" fill="${accent}" />
+      <text x="42" y="13" class="mono" font-size="8" fill="${theme.muted}">sohil@workstation: ~/kernel</text>
+
+      <!-- Terminal Buffer Code Output -->
+      <g transform="translate(14, 38)">
+        <text x="0" y="0" class="mono term-text"><tspan fill="${accent}">$</tspan> sohil.init --artifact=true</text>
+        <text x="0" y="16" class="mono term-text"><tspan fill="${accent}">[OK]</tspan> loaded derma-vortex-ai</text>
+        <text x="0" y="32" class="mono term-text"><tspan fill="${accent}">[OK]</tspan> loaded network-telemetry-engine</text>
+        <text x="0" y="48" class="mono term-text"><tspan fill="${accent}">[OK]</tspan> loaded medscope-clinical-timeline</text>
+        <text x="0" y="64" class="mono term-text"><tspan fill="${accent}">[OK]</tspan> loaded nemesis-audio-daemon</text>
+        <text x="0" y="82" class="mono term-text"><tspan fill="${theme.blue}">❯</tspan> executing ideas_to_code<tspan class="cursor-blink" fill="${accent}"> ▋</tspan></text>
+      </g>
+    </g>
+
+    <!-- Laptop Base Keyboard & Trackpad -->
+    <g transform="translate(40, 186)">
+      <rect width="280" height="10" rx="2" fill="${theme.border}" />
+      <rect x="115" y="2" width="50" height="6" rx="1" fill="${theme.surface}" />
+    </g>
+
+    <!-- Potted Pixel Plant (Terracotta & 2D Leaves) -->
+    <g transform="translate(30, 204)">
+      <polygon points="6,12 22,12 19,26 9,26" fill="${theme.orange}" stroke="${theme.border}" stroke-width="1.5" />
+      <rect x="4" y="9" width="20" height="4" rx="1" fill="${theme.orange}" stroke="${theme.border}" stroke-width="1.5" />
+      <rect x="12" y="2" width="4" height="8" fill="${accent}" />
+      <rect x="7" y="0" width="6" height="5" rx="1" fill="${accent}" />
+      <rect x="15" y="1" width="7" height="5" rx="1" fill="${accent}" />
+    </g>
+
+    <!-- Coffee Mug -->
+    <g transform="translate(68, 208)">
+      <rect width="14" height="18" rx="2" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1.5" />
+      <path d="M 14,4 C 18,4 18,14 14,14" fill="none" stroke="${theme.border}" stroke-width="1.5" />
+      <rect x="3" y="3" width="8" height="2" fill="${theme.orange}" />
+      <rect x="5" y="-5" width="1.5" height="4" fill="${theme.muted}" opacity="0.6" />
+      <rect x="9" y="-8" width="1.5" height="5" fill="${theme.muted}" opacity="0.6" />
+    </g>
+
+    <!-- Micro Technical Coordinate Annotation -->
+    <text x="340" y="230" text-anchor="end" class="mono" font-size="8" fill="${theme.muted}">LOC: 13.0827°N, 80.2707°E</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 3: RIGHT DIGITAL UNIVERSE (x: 680 to 932)                      -->
+  <!-- ===================================================================== -->
+  <g transform="translate(680, 52)">
+    <rect width="252" height="242" rx="6" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1.5" />
+
+    <!-- Architectural Celestial Window (Top) -->
+    <g transform="translate(16, 16)">
+      <rect width="220" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1.5" />
+      <line x1="0" y1="37" x2="220" y2="37" stroke="${theme.border}" stroke-width="1" stroke-dasharray="2 2" />
+      <line x1="110" y1="0" x2="110" y2="74" stroke="${theme.border}" stroke-width="1" stroke-dasharray="2 2" />
+
+      <!-- Crescent Moon -->
+      <circle cx="170" cy="36" r="16" fill="${theme.orange}" />
+      <circle cx="176" cy="32" r="13" fill="${theme.bg}" />
+
+      <!-- Pixel Stars -->
+      <rect x="30" y="18" width="4" height="4" fill="${accent}" />
+      <rect x="75" y="25" width="3" height="3" fill="${theme.text}" />
+      <rect x="45" y="52" width="3" height="3" fill="${theme.blue}" />
+      <rect x="125" y="20" width="3" height="3" fill="${theme.violet}" />
+      <rect x="135" y="55" width="4" height="4" fill="${accent}" />
+    </g>
+
+    <!-- Interrupted Grid & Floating Node Cluster (Middle) -->
+    <g transform="translate(16, 100)">
+      <line x1="10" y1="20" x2="70" y2="10" stroke="${theme.border}" stroke-width="1.5" stroke-dasharray="3 3" />
+      <line x1="70" y1="10" x2="140" y2="25" stroke="${theme.border}" stroke-width="1.5" stroke-dasharray="3 3" />
+      <line x1="140" y1="25" x2="210" y2="12" stroke="${theme.border}" stroke-width="1.5" stroke-dasharray="3 3" />
+
+      <circle cx="10" cy="20" r="3" fill="${theme.blue}" />
+      <circle cx="70" cy="10" r="4" fill="${accent}" class="node-pulse" />
+      <circle cx="140" cy="25" r="3" fill="${theme.pink}" />
+      <circle cx="210" cy="12" r="4" fill="${theme.orange}" />
+    </g>
+
+    <!-- Vertical Sequence: IDEA_, CODE_, BUILD_, LEARN_ (Bottom) -->
+    <g transform="translate(24, 150)">
+      <rect width="204" height="74" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
+      <line x1="16" y1="18" x2="16" y2="58" stroke="${accent}" stroke-width="2" />
+
+      <text x="28" y="22" class="mono seq-text"><tspan fill="${accent}">01.</tspan> IDEA_</text>
+      <text x="28" y="36" class="mono seq-text"><tspan fill="${theme.blue}">02.</tspan> CODE_</text>
+      <text x="28" y="50" class="mono seq-text"><tspan fill="${theme.orange}">03.</tspan> BUILD_</text>
+      <text x="28" y="64" class="mono seq-text"><tspan fill="${theme.violet}">04.</tspan> LEARN_</text>
     </g>
   </g>
-
-  <!-- POTTED PIXEL PLANT (Flat 2D Terracotta & Leaves) -->
-  <g transform="translate(435, 225)">
-    <!-- Pot Body -->
-    <polygon points="12,18 36,18 32,46 16,46" fill="${theme.orange}" stroke="${theme.border}" stroke-width="2" />
-    <rect x="8" y="14" width="32" height="5" rx="1.5" fill="${theme.orange}" stroke="${theme.border}" stroke-width="2" />
-    <!-- Pixel Foliage (Electric Lime Rects) -->
-    <rect x="22" y="4" width="4" height="10" fill="${accent}" />
-    <rect x="14" y="0" width="8" height="6" rx="2" fill="${accent}" />
-    <rect x="26" y="2" width="10" height="6" rx="2" fill="${accent}" />
-    <rect x="18" y="-4" width="6" height="8" rx="2" fill="${accent}" />
-  </g>
-
-  <!-- COFFEE MUG (Flat 2D with Steam) -->
-  <g transform="translate(485, 238)">
-    <rect width="18" height="24" rx="3" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
-    <path d="M 18,6 C 24,6 24,18 18,18" fill="none" stroke="${theme.border}" stroke-width="2" />
-    <rect x="4" y="4" width="10" height="2" fill="${theme.orange}" />
-    <!-- Pixel Steam -->
-    <rect x="6" y="-8" width="2" height="5" fill="${theme.muted}" opacity="0.6" />
-    <rect x="11" y="-12" width="2" height="6" fill="${theme.muted}" opacity="0.6" />
-  </g>
-
-  <!-- FLOATING PANE 1: Browser Window (Derma-Vortex Preview) -->
-  <g transform="translate(520, 68)">
-    <rect width="210" height="120" rx="6" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
-    <rect width="210" height="22" rx="6" fill="${theme.bg}" />
-    <circle cx="12" cy="11" r="2.5" fill="${theme.pink}" />
-    <circle cx="20" cy="11" r="2.5" fill="${theme.orange}" />
-    <circle cx="28" cy="11" r="2.5" fill="${accent}" />
-    <text x="38" y="14" class="mono muted-text">derma_vortex.ai</text>
-
-    <!-- Mini Neural Layout inside Pane -->
-    <g transform="translate(20, 38)">
-      <rect width="170" height="68" rx="4" fill="${theme.bg}" stroke="${theme.border}" stroke-width="1" />
-      <circle cx="35" cy="34" r="6" fill="${accent}" />
-      <circle cx="85" cy="22" r="5" fill="${theme.blue}" />
-      <circle cx="85" cy="46" r="5" fill="${theme.violet}" />
-      <circle cx="135" cy="34" r="6" fill="${accent}" />
-      <line x1="35" y1="34" x2="85" y2="22" stroke="${theme.border}" stroke-width="1.5" />
-      <line x1="35" y1="34" x2="85" y2="46" stroke="${theme.border}" stroke-width="1.5" />
-      <line x1="85" y1="22" x2="135" y2="34" stroke="${theme.border}" stroke-width="1.5" />
-      <line x1="85" y1="46" x2="135" y2="34" stroke="${theme.border}" stroke-width="1.5" />
-    </g>
-  </g>
-
-  <!-- FLOATING PANE 2: Editor Syntax Pane -->
-  <g transform="translate(560, 205)">
-    <rect width="200" height="78" rx="6" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
-    <rect width="200" height="18" rx="6" fill="${theme.bg}" />
-    <text x="12" y="13" class="mono muted-text">pipeline.ts</text>
-    <rect x="12" y="28" width="45" height="4" rx="2" fill="${theme.blue}" />
-    <rect x="62" y="28" width="65" height="4" rx="2" fill="${theme.violet}" />
-    <rect x="22" y="38" width="85" height="4" rx="2" fill="${accent}" />
-    <rect x="22" y="48" width="55" height="4" rx="2" fill="${theme.text}" />
-    <rect x="82" y="48" width="35" height="4" rx="2" fill="${theme.orange}" />
-    <rect x="12" y="58" width="25" height="4" rx="2" fill="${theme.blue}" />
-  </g>
-
-  <!-- EASTER EGG (Deliberate & Harmless) -->
-  <text x="935" y="300" text-anchor="end" class="mono" font-size="9" fill="${theme.border}">// hello, world</text>
 </svg>`;
 }
 
 /**
- * Generates the Standalone Signature Motif SVG.
+ * Generates the Canonical 96x96 "The Sohil Signal" SVG.
  * @param {'dark'|'light'} [mode='dark']
  * @returns {string}
  */
 export function generateSignatureSvg(mode = 'dark') {
   const theme = PALETTE[mode];
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <title>SOHIL.exe Signature Motif</title>
-  <desc>Pixel cursor signature emblem.</desc>
-  <rect width="32" height="32" rx="4" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
-  ${renderPixelCursor({ x: 8, y: 8, size: 16, color: theme.lime, accentColor: theme.blue })}
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <title>The Sohil Signal - Signature Brand Symbol</title>
+  <desc>Original 96x96 geometric pixel-grid developer symbol constructed on an 8px grid with signature lime signal square.</desc>
+  <style>${commonStyles()}</style>
+
+  <rect width="96" height="96" rx="8" fill="${theme.surface}" stroke="${theme.border}" stroke-width="2" />
+  ${renderSohilSignal({ x: 0, y: 0, size: 96, mode, showOrangePixel: true })}
 </svg>`;
 }
 
 /**
- * Generates individual flat 2D Skill Icon Tiles.
+ * Generates individual flat 2D Skill Icon Tiles (160 x 56).
  * @param {string} title
  * @param {string} category
  * @param {string} iconType
@@ -290,7 +315,7 @@ export function generateStatsArtSvg(metrics, mode = 'dark') {
 }
 
 /**
- * Generates 12-Week Commit Velocity Heatmap & Sparkline Art (960 x 160).
+ * Generates 12-Week Commit Velocity Heatmap & Sparkline Art (960 x 150).
  * @param {number[]} weeklyActivity
  * @param {'dark'|'light'} [mode='dark']
  * @returns {string}
@@ -301,7 +326,6 @@ export function generateActivityArtSvg(weeklyActivity, mode = 'dark') {
   const max = Math.max(...weeklyActivity, 1);
   const total = weeklyActivity.reduce((a, b) => a + b, 0);
 
-  // 12 columns of 2D flat stacked energy blocks
   const columnsMarkup = weeklyActivity
     .map((val, i) => {
       const x = 36 + i * 75;
@@ -311,13 +335,9 @@ export function generateActivityArtSvg(weeklyActivity, mode = 'dark') {
 
       return `
       <g>
-        <!-- Background Track -->
         <rect x="${x}" y="50" width="48" height="65" rx="3" fill="${theme.surface}" stroke="${theme.border}" stroke-width="1" />
-        <!-- Active Energy Column -->
         <rect x="${x}" y="${y}" width="48" height="${height}" rx="3" fill="${val > max * 0.7 ? accent : theme.blue}" />
-        <!-- Commit Count inside / above bar -->
         <text x="${x + 24}" y="42" text-anchor="middle" class="mono bold" font-size="9" fill="${theme.text}">${val}</text>
-        <!-- Week Label -->
         <text x="${x + 24}" y="132" text-anchor="middle" class="mono" font-size="9" fill="${theme.muted}">${label}</text>
       </g>`;
     })
@@ -330,12 +350,10 @@ export function generateActivityArtSvg(weeklyActivity, mode = 'dark') {
 
   <rect x="1" y="1" width="958" height="148" rx="8" fill="${theme.bg}" stroke="${theme.border}" stroke-width="2" />
 
-  <!-- Header -->
   <text x="36" y="24" class="mono bold" font-size="11" fill="${accent}">&gt; 12-WEEK COMMIT VELOCITY MATRIX</text>
   <text x="924" y="24" text-anchor="end" class="mono" font-size="10" fill="${theme.muted}">TOTAL: <tspan fill="${theme.text}" font-weight="700">${total}</tspan> COMMITS</text>
   <line x1="36" y1="30" x2="924" y2="30" stroke="${theme.border}" stroke-width="1" />
 
-  <!-- Heatmap Columns -->
   ${columnsMarkup}
 </svg>`;
 }

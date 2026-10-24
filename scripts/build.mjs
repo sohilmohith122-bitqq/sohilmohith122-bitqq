@@ -107,8 +107,10 @@ async function build() {
   const metrics = await fetchGitHubMetrics();
 
   // 3. Update projects in config if in AUTO mode
-  if (config.projects_mode === 'auto') {
-    config.projects = metrics.topProjects;
+  const isAuto = (config.projectsMode || config.projects_mode) === 'auto';
+  if (isAuto) {
+    const max = config.maxProjects || 4;
+    config.projects = metrics.topProjects.slice(0, max);
     await fs.writeFile(configPath, JSON.stringify(config, null, 2) + '\n', 'utf8');
     console.log(`✓ Synchronized ${config.projects.length} collectible levels to profile.config.json`);
   }

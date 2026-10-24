@@ -1,17 +1,17 @@
 <div align="center">
 
-<!-- HERO: THE CHAOTIC WORKSTATION (FLAT 2D VECTOR) -->
+<!-- 1. HERO: THE CHAOTIC WORKSTATION (FLAT 2D VECTOR) -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/header-light.svg" />
-  <img src="./assets/header-dark.svg" width="100%" alt="SOHIL.exe - The 2D Developer Universe" />
+  <img src="./assets/header-dark.svg" width="100%" alt="SOHIL.exe - CODE / FORM - The 2D Developer Universe" />
 </picture>
 
 # Sohil
 
 **Full-Stack Builder & Autonomous Systems Explorer**
 
-*Building software universes from first principles.*
+*IDEAS → CODE → IMPACT*
 
 📍 **Base**: Tamil Nadu, India &nbsp;•&nbsp; 🎓 **Academic**: Undergraduate, Artificial Intelligence & Data Science &nbsp;•&nbsp; ⚡ **Status**: Open to internships, research collabs & open-source builds
 
@@ -19,17 +19,17 @@
 
 ---
 
-### 🕹️ At a Glance // Recruiter Brief
+### 🕹️ Developer Overview // Recruiter Brief
 
 Undergraduate software developer focused on architecting deterministic full-stack web platforms, static code security tools, and multimodal AI pipelines. I enjoy designing clean, transparent systems from scratch and building tools that make developers faster.
 
-- **Primary Focus**: Full-stack web engineering, automated code security analyzers & on-device AI pipelines.
+- **Primary Focus**: Full-stack web engineering, static code security analyzers & multimodal AI pipelines.
 - **Production Core**: Python, TypeScript, React 19, FastAPI, PostgreSQL, Linux & Docker.
 - **Flagship Project**: [`DERMA-VORTEX-AI`](https://github.com/sohilmohith122-bitqq/DERMA-VORTEX-AI) — Multimodal dermatological clinical screening platform.
 
 ---
 
-### 👾 Project Arcade // Collectible Levels
+### 👾 Selected Work // Collectible Project Arcade
 
 <div align="center">
   <a href="https://github.com/sohilmohith122-bitqq/DERMA-VORTEX-AI"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-01-derma-vortex-ai-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-01-derma-vortex-ai-light.svg" /><img src="./assets/projects/card-lvl-01-derma-vortex-ai-dark.svg" width="48%" alt="DERMA-VORTEX-AI - LVL 01" /></picture></a>&nbsp;&nbsp;<a href="https://github.com/sohilmohith122-bitqq/Network-Anomaly-Detection"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/projects/card-lvl-02-network-anomaly-detection-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/projects/card-lvl-02-network-anomaly-detection-light.svg" /><img src="./assets/projects/card-lvl-02-network-anomaly-detection-dark.svg" width="48%" alt="Network-Anomaly-Detection - LVL 02" /></picture></a>
@@ -39,7 +39,7 @@ Undergraduate software developer focused on architecting deterministic full-stac
 
 <br/>
 
-#### ❯ Complete Verified Repository Registry
+#### ❯ Verified Public Repository Registry
 
 | Level | Project | Description | Stack | Link |
 | :---: | :--- | :--- | :--- | :---: |
@@ -50,7 +50,7 @@ Undergraduate software developer focused on architecting deterministic full-stac
 
 ---
 
-### 🧰 Skill Inventory // Flat 2D Artifacts
+### 🧰 Skills & Tools // Flat 2D Artifacts
 
 <div align="center">
   <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/skills/lang-python-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/skills/lang-python-light.svg" /><img src="./assets/skills/lang-python-dark.svg" width="160" height="56" alt="Python" /></picture>
@@ -68,6 +68,16 @@ Undergraduate software developer focused on architecting deterministic full-stac
 
 **⚡ Actively Leveling Up In**:
 `[ ⯌ ]` Distributed Systems &nbsp;•&nbsp; `[ ⯌ ]` System Design &nbsp;•&nbsp; `[ ⯌ ]` Cybersecurity Heuristics &nbsp;•&nbsp; `[ ⯌ ]` Rust
+
+---
+
+### 📐 Engineering Principles // SOHIL.exe
+
+| Principle | Core Directive | Practice |
+| :---: | :--- | :--- |
+| **01** | **IDEAS** | First-principles systems architecture & deterministic domain modeling. |
+| **02** | **CODE** | Clean, zero-bloat vector & runtime implementations with strict type safety. |
+| **03** | **IMPACT** | Autonomous tooling engineered to eliminate friction for developers. |
 
 ---
 
@@ -108,11 +118,11 @@ Undergraduate software developer focused on architecting deterministic full-stac
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/signature-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/signature-light.svg" />
-  <img src="./assets/signature-dark.svg" width="24" height="24" alt="SOHIL.exe Signature Motif" />
+  <img src="./assets/signature-dark.svg" width="48" height="48" alt="The Sohil Signal - Signature Brand Symbol" />
 </picture>
 
 ```bash
-# SOHIL.exe // [ ⯌ ] SESSION TERMINATED DETERMINISTICALLY
+# SOHIL.exe // [ ⯌ ] IDEAS → CODE → IMPACT
 exit 0
 ```
 
