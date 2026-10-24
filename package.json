@@ -1,0 +1,11 @@
+{
+  "name": "sohilmohith122-bitqq",
+  "version": "1.0.0",
+  "description": "Terminal / cyberpunk developer profile for GitHub",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "node scripts/lint.mjs"
+  },
+  "devDependencies": {}
+}

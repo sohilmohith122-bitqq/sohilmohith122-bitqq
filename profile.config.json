@@ -1,0 +1,83 @@
+{
+  "name": "Sohil Mohith",
+  "handle": "sohilmohith122-bitqq",
+  "github_url": "https://github.com/sohilmohith122-bitqq",
+  "role": "Aspiring Full-Stack Developer",
+  "tagline": "Building things, breaking them, learning why.",
+  "location": "Tamil Nadu, India",
+  "timezone": "IST (UTC+5:30)",
+  "os_of_choice": "Windows + WSL2 (Ubuntu)",
+  "shell": "bash",
+  "editor": "VS Code",
+  "languages": [
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "HTML",
+    "CSS"
+  ],
+  "frameworks_tools": [
+    "React",
+    "Node.js",
+    "FastAPI",
+    "Git",
+    "GitHub Actions",
+    "Linux",
+    "Antigravity"
+  ],
+  "learning": [
+    "Data Structures & Algorithms",
+    "System Design",
+    "Cybersecurity basics",
+    "TypeScript"
+  ],
+  "current_project": "Building my terminal-style GitHub profile",
+  "years_coding_start": "[EDIT: year I started coding]",
+  "projects_mode": "auto",
+  "projects": [
+    {
+      "name": "DERMA-VORTEX-AI",
+      "description": "Multimodal dermatological AI screening and clinical assessment platform",
+      "language": "TypeScript",
+      "url": "https://github.com/sohilmohith122-bitqq/DERMA-VORTEX-AI",
+      "stars": 0,
+      "pushed_at": "2026-10-16T12:11:32Z"
+    },
+    {
+      "name": "Network-Anomaly-Detection",
+      "description": "Real-time telemetry analysis and anomaly detection pipeline",
+      "language": "Python",
+      "url": "https://github.com/sohilmohith122-bitqq/Network-Anomaly-Detection",
+      "stars": 0,
+      "pushed_at": "2026-10-15T17:01:27Z"
+    },
+    {
+      "name": "MEDSCOPE-AI",
+      "description": "Evidence-first clinical event timeline and health records engine",
+      "language": "TypeScript",
+      "url": "https://github.com/sohilmohith122-bitqq/MEDSCOPE-AI",
+      "stars": 0,
+      "pushed_at": "2026-09-18T21:54:57Z"
+    },
+    {
+      "name": "NEMESIS",
+      "description": "Autonomous dual-loop voice assistant and security testing environment",
+      "language": "Python",
+      "url": "https://github.com/sohilmohith122-bitqq/NEMESIS",
+      "stars": 0,
+      "pushed_at": "2026-09-11T14:07:44Z"
+    }
+  ],
+  "links": {
+    "linkedin": "[EDIT: url]",
+    "email": "[EDIT: email]",
+    "portfolio": "[EDIT: url or omit]"
+  },
+  "vibe": [
+    "lo-fi",
+    "chai",
+    "late-night debugging",
+    "open source"
+  ],
+  "status": "Open to internships, collabs and open-source contributions"
+}

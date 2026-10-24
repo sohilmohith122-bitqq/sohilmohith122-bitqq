@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 20" width="100%" height="20">
+  <title>Cyberpunk Terminal Divider</title>
+  <desc>Segmented terminal divider line with pulsing matrix green center node.</desc>
+  <defs>
+    <linearGradient id="divGradLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ff9c" stop-opacity="0" />
+      <stop offset="60%" stop-color="#16222f" />
+      <stop offset="100%" stop-color="#00ff9c" />
+    </linearGradient>
+    <linearGradient id="divGradRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ff9c" />
+      <stop offset="40%" stop-color="#16222f" />
+      <stop offset="100%" stop-color="#00ff9c" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(0, 10)">
+    <!-- Left Segment -->
+    <line x1="20" y1="0" x2="380" y2="0" stroke="url(#divGradLeft)" stroke-width="1.5" />
+    <!-- Right Segment -->
+    <line x1="420" y1="0" x2="780" y2="0" stroke="url(#divGradRight)" stroke-width="1.5" />
+
+    <!-- Cyan Decorative Ticks -->
+    <rect x="180" y="-3" width="6" height="6" fill="#22e6ff" opacity="0.6" />
+    <rect x="614" y="-3" width="6" height="6" fill="#22e6ff" opacity="0.6" />
+
+    <!-- Center Cyber Diamond Node -->
+    <polygon points="400,-6 408,0 400,6 392,0" fill="#00ff9c">
+      <animate attributeName="opacity" values="0.6; 1; 0.6" dur="2.5s" repeatCount="indefinite" />
+    </polygon>
+    <circle cx="400" cy="0" r="1.5" fill="#0a0e14" />
+  </g>
+</svg>

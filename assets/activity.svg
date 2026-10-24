@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 190" width="100%" height="190">
+  <defs>
+    <!-- Dark Glass Linear Gradient -->
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e141d" />
+      <stop offset="100%" stop-color="#0a0e14" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f1620" />
+      <stop offset="100%" stop-color="#141c28" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace; }
+    .term-title { font-size: 12px; fill: #5c6b7a; letter-spacing: 0.5px; }
+  </style>
+
+  <!-- Terminal Body Frame -->
+  <rect x="1" y="1" width="798" height="188" rx="8" fill="url(#termBg)" stroke="#1a2433" stroke-width="1.5" />
+  <rect x="2" y="2" width="796" height="186" rx="7" fill="none" stroke="#00ff9c" stroke-opacity="0.15" stroke-width="1" />
+
+  <!-- Terminal Window Header -->
+  <path d="M 1,9 A 8,8 0 0 1 9,1 L 791,1 A 8,8 0 0 1 799,9 L 799,32 L 1,32 Z" fill="url(#headerGrad)" />
+  <line x1="1" y1="32" x2="799" y2="32" stroke="#1c2736" stroke-width="1" />
+
+  <!-- 3 Chrome Controls -->
+  <circle cx="18" cy="16" r="4.5" fill="#ff5370" />
+  <circle cx="34" cy="16" r="4.5" fill="#ffb86b" />
+  <circle cx="50" cy="16" r="4.5" fill="#00ff9c" />
+
+  <!-- Title -->
+  <text x="400" y="20" text-anchor="middle" class="mono term-title">sohil@activity: ~/sparkline</text>
+
+  <!-- Matrix Background (Optional) -->
+  
+
+  <!-- Main Content Group -->
+  <g transform="translate(0, 32)">
+    
+    <g transform="translate(40, 20)">
+      <text x="0" y="0" class="mono" font-size="12" font-weight="bold" fill="#00ff9c">&gt; COMMIT VELOCITY</text>
+      <text x="720" y="0" text-anchor="end" class="mono" font-size="11" fill="#5c6b7a">TOTAL 12-WEEK COMMITS: <tspan fill="#22e6ff" font-weight="bold">367</tspan></text>
+
+      <!-- Sparkline plot area -->
+      <g transform="translate(0, 15)">
+        <!-- Subtle horizontal grid lines -->
+        <line x1="0" y1="0" x2="720" y2="0" stroke="#16222f" stroke-width="1" stroke-dasharray="3 3" />
+        <line x1="0" y1="42" x2="720" y2="42" stroke="#16222f" stroke-width="1" stroke-dasharray="3 3" />
+        <line x1="0" y1="85" x2="720" y2="85" stroke="#16222f" stroke-width="1" />
+
+        <g>
+    <defs>
+      <linearGradient id="activitySparkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#00ff9c" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#00ff9c" stop-opacity="0.0" />
+      </linearGradient>
+    </defs>
+    <!-- Background Area Fill -->
+    <path d=" M 0,61 L 65,53 L 131,58 L 196,44 L 262,37 L 327,48 L 393,27 L 458,39 L 524,32 L 589,17 L 655,8 L 720,13 L 720,85 L 0,85 Z" fill="url(#activitySparkGrad)" />
+    <!-- Line Stroke -->
+    <path d=" M 0,61 L 65,53 L 131,58 L 196,44 L 262,37 L 327,48 L 393,27 L 458,39 L 524,32 L 589,17 L 655,8 L 720,13" fill="none" stroke="#00ff9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Data Points -->
+    <circle cx="0" cy="61" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>12 commits</title>
+      </circle>
+<circle cx="65" cy="53" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>18 commits</title>
+      </circle>
+<circle cx="131" cy="58" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>14 commits</title>
+      </circle>
+<circle cx="196" cy="44" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>25 commits</title>
+      </circle>
+<circle cx="262" cy="37" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>30 commits</title>
+      </circle>
+<circle cx="327" cy="48" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>22 commits</title>
+      </circle>
+<circle cx="393" cy="27" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>38 commits</title>
+      </circle>
+<circle cx="458" cy="39" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>29 commits</title>
+      </circle>
+<circle cx="524" cy="32" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>34 commits</title>
+      </circle>
+<circle cx="589" cy="17" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>45 commits</title>
+      </circle>
+<circle cx="655" cy="8" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>52 commits</title>
+      </circle>
+<circle cx="720" cy="13" r="2.5" fill="#00ff9c" opacity="0.85">
+        <title>48 commits</title>
+      </circle>
+  </g>
+        <text x="0" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-12</text>
+<text x="65" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-11</text>
+<text x="131" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-10</text>
+<text x="196" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-9</text>
+<text x="262" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-8</text>
+<text x="327" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-7</text>
+<text x="393" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-6</text>
+<text x="458" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-5</text>
+<text x="524" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-4</text>
+<text x="589" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-3</text>
+<text x="655" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">W-2</text>
+<text x="720" y="105" text-anchor="middle" class="mono" font-size="10" fill="#5c6b7a">NOW</text>
+      </g>
+    </g>
+  
+  </g>
+
+  <!-- Scanlines Overlay (Optional) -->
+  
+    <pattern id="scanlines" width="100%" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="#000000" stroke-width="1.2" opacity="0.25" />
+    </pattern>
+    <rect width="800" height="190" fill="url(#scanlines)" pointer-events="none" />
+</svg>
