@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="100%">
+  <defs>
+    <!-- Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b0d2a" />
+      <stop offset="55%" stop-color="#2a1458" />
+      <stop offset="100%" stop-color="#5b2a86" />
+    </linearGradient>
+
+    <!-- Title Gradient -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22e6ff" />
+      <stop offset="100%" stop-color="#c06bff" />
+    </linearGradient>
+
+    <!-- Typewriter Clip Path -->
+    <clipPath id="typewriterClip">
+      <rect x="58" y="174" width="0" height="30">
+        <animate attributeName="width"
+                 values="0; 0; 435; 435; 0"
+                 keyTimes="0; 0.06; 0.46; 0.90; 1"
+                 dur="7s"
+                 repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <!-- Background Sky -->
+  <rect width="1000" height="320" fill="url(#skyGrad)" />
+
+  <!-- 8 Twinkling Pixel Stars -->
+  <!-- Star 1 -->
+  <rect x="75" y="40" width="3" height="3" fill="#ffffff">
+    <animate attributeName="opacity" values="0.2; 1; 0.2" dur="2.2s" repeatCount="indefinite" />
+  </rect>
+  <!-- Star 2 -->
+  <rect x="195" y="65" width="4" height="4" fill="#ffffff">
+    <animate attributeName="opacity" values="0.1; 0.9; 0.1" dur="1.8s" repeatCount="indefinite" />
+  </rect>
+  <!-- Star 3 -->
+  <rect x="340" y="32" width="3" height="3" fill="#ffffff">
+    <animate attributeName="opacity" values="0.3; 1; 0.3" dur="2.9s" repeatCount="indefinite" />
+  </rect>
+  <!-- Star 4 -->
+  <rect x="470" y="78" width="4" height="4" fill="#ffffff">
+    <animate attributeName="opacity" values="0.2; 1; 0.2" dur="2.5s" repeatCount="indefinite" />
+  </rect>
+  <!-- Star 5 -->
+  <rect x="590" y="38" width="3" height="3" fill="#ffffff">
+    <animate attributeName="opacity" values="0.1; 0.85; 0.1" dur="3.1s" repeatCount="indefinite" />
+  </rect>
+  <!-- Star 6 -->
+  <rect x="715" y="62" width="4" height="4" fill="#ffffff">
+    <animate attributeName="opacity" values="0.3; 1; 0.3" dur="2.0s" repeatCount="indefinite" />
+  </rect>
+  <!-- Star 7 -->
+  <rect x="805" y="30" width="3" height="3" fill="#ffffff">
+    <animate attributeName="opacity" values="0.2; 1; 0.2" dur="2.7s" repeatCount="indefinite" />
+  </rect>
+  <!-- Star 8 -->
+  <rect x="945" y="55" width="4" height="4" fill="#ffffff">
+    <animate attributeName="opacity" values="0.1; 1; 0.1" dur="3.2s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Moon (Radius ~38 at Top Right with Craters) -->
+  <g id="moonGroup">
+    <circle cx="875" cy="72" r="38" fill="#ffe9a8" />
+    <circle cx="862" cy="62" r="7.5" fill="#dfc67f" opacity="0.65" />
+    <circle cx="888" cy="82" r="6" fill="#dfc67f" opacity="0.6" />
+    <circle cx="868" cy="88" r="4" fill="#dfc67f" opacity="0.5" />
+  </g>
+
+  <!-- Jagged Mountain Silhouettes (Layer 1: Lighter Purple #3a1b6b) -->
+  <path d="M0,230 L35,230 L35,212 L75,212 L75,198 L115,198 L115,218 L170,218 L170,205 L225,205 L225,192 L265,192 L265,214 L325,214 L325,224 L380,224 L380,202 L430,202 L430,188 L485,188 L485,210 L540,210 L540,224 L595,224 L595,206 L645,206 L645,192 L695,192 L695,214 L755,214 L755,200 L815,200 L815,186 L875,186 L875,208 L935,208 L935,224 L1000,224 L1000,320 L0,320 Z"
+        fill="#3a1b6b" />
+
+  <!-- Jagged Mountain Silhouettes (Layer 2: Darker Purple #1d0f3f) -->
+  <path d="M0,265 L50,265 L50,250 L105,250 L105,238 L160,238 L160,254 L215,254 L215,242 L275,242 L275,232 L335,232 L335,248 L395,248 L395,258 L460,258 L460,244 L520,244 L520,234 L580,234 L580,248 L650,248 L650,258 L720,258 L720,244 L785,244 L785,254 L855,254 L855,240 L915,240 L915,254 L1000,254 L1000,320 L0,320 Z"
+        fill="#1d0f3f" />
+
+  <!-- Floating Neon Code Symbols -->
+  <!-- Neon Cyan </> -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="495,85; 495,73; 495,85" dur="3.4s" repeatCount="indefinite" />
+    <rect x="-4" y="-20" width="48" height="26" fill="#0b0d2a" opacity="0.3" rx="4" />
+    <text x="0" y="0" font-family="'Courier New', monospace" font-size="22" font-weight="900" fill="#22e6ff">&lt;/&gt;</text>
+  </g>
+
+  <!-- Neon Violet { } -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="615,108; 615,96; 615,108" dur="3.9s" repeatCount="indefinite" />
+    <rect x="-4" y="-22" width="38" height="28" fill="#0b0d2a" opacity="0.3" rx="4" />
+    <text x="0" y="0" font-family="'Courier New', monospace" font-size="25" font-weight="900" fill="#c06bff">{ }</text>
+  </g>
+
+  <!-- Hot Pink ; -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="710,75; 710,63; 710,75" dur="3.2s" repeatCount="indefinite" />
+    <rect x="-4" y="-24" width="22" height="30" fill="#0b0d2a" opacity="0.3" rx="4" />
+    <text x="0" y="0" font-family="'Courier New', monospace" font-size="30" font-weight="900" fill="#ff7ad9">;</text>
+  </g>
+
+  <!-- Left Side Text Block -->
+  <!-- 1. Small Pink Subtitle Line -->
+  <text x="60" y="92" font-family="'Courier New', monospace" font-size="16" font-weight="bold" fill="#ff7ad9" letter-spacing="1.5">&gt; hey, i'm</text>
+
+  <!-- 2. Large Bold Title with Horizontal Cyan-to-Violet Gradient -->
+  <text x="60" y="152" font-family="'Courier New', monospace" font-size="58" font-weight="900" fill="url(#titleGrad)" letter-spacing="2">SOHIL MOHITH</text>
+
+  <!-- 3. Subtitle with Looping Typewriter Effect -->
+  <g clip-path="url(#typewriterClip)">
+    <text x="60" y="194" font-family="'Courier New', monospace" font-size="19" font-weight="bold" fill="#ffe9a8" letter-spacing="1">// building &#8226; breaking &#8226; learning</text>
+  </g>
+
+  <!-- Blinking Typewriter Cursor -->
+  <rect x="60" y="178" width="10" height="20" fill="#22e6ff">
+    <animate attributeName="x"
+             values="60; 60; 485; 485; 60"
+             keyTimes="0; 0.06; 0.46; 0.90; 1"
+             dur="7s"
+             repeatCount="indefinite" />
+    <animate attributeName="opacity"
+             values="1; 1; 0; 0"
+             keyTimes="0; 0.5; 0.51; 1"
+             dur="0.75s"
+             repeatCount="indefinite" />
+  </rect>
+
+  <!-- 4. Underline Accent (Cyan rect + Violet rect) -->
+  <rect x="60" y="218" width="90" height="5" fill="#22e6ff" />
+  <rect x="156" y="218" width="55" height="5" fill="#c06bff" />
+  <rect x="216" y="218" width="12" height="5" fill="#ff7ad9" />
+
+  <!-- Bottom Right: Pixel Art Workspace (Desk, Chair, Character, Laptop, Mug) -->
+  <!-- Chair Back and Base (Behind Character) -->
+  <g id="pixelChair">
+    <!-- Backrest -->
+    <rect x="732" y="178" width="14" height="66" fill="#241542" />
+    <rect x="734" y="180" width="10" height="62" fill="#362061" />
+    <!-- Seat -->
+    <rect x="732" y="244" width="46" height="10" fill="#2a184c" />
+    <!-- Chair stem -->
+    <rect x="748" y="254" width="10" height="42" fill="#181028" />
+    <!-- Wheel Base -->
+    <rect x="734" y="296" width="38" height="6" fill="#120b20" />
+    <rect x="730" y="300" width="8" height="6" fill="#0b0714" />
+    <rect x="768" y="300" width="8" height="6" fill="#0b0714" />
+  </g>
+
+  <!-- Character (Built entirely of <rect> elements) -->
+  <g id="pixelCharacter">
+    <!-- Legs / Trousers -->
+    <rect x="752" y="244" width="38" height="12" fill="#1a1e36" />
+    <rect x="778" y="256" width="14" height="42" fill="#15182c" />
+    <!-- Cyan Sneakers -->
+    <rect x="778" y="298" width="22" height="8" fill="#22e6ff" />
+    <rect x="778" y="304" width="24" height="4" fill="#ffffff" />
+
+    <!-- Torso / Purple Hoodie -->
+    <rect x="744" y="194" width="34" height="52" fill="#5b2a86" />
+    <!-- Hoodie Shadow / Texture -->
+    <rect x="744" y="222" width="34" height="24" fill="#441e66" />
+    <!-- Front Pocket -->
+    <rect x="762" y="225" width="16" height="14" fill="#6d32a1" />
+
+    <!-- Head and Neck (Skin Tone) -->
+    <rect x="758" y="180" width="14" height="15" fill="#e5b07e" />
+    <rect x="754" y="155" width="24" height="26" fill="#fcd0a1" />
+    <!-- Eye & Facial Detail -->
+    <rect x="773" y="165" width="3" height="5" fill="#110f17" />
+    <rect x="772" y="174" width="4" height="2" fill="#e5b07e" />
+
+    <!-- Black Hair -->
+    <rect x="750" y="146" width="30" height="12" fill="#110f17" />
+    <rect x="748" y="156" width="8" height="18" fill="#110f17" />
+    <rect x="774" y="154" width="7" height="10" fill="#110f17" />
+
+    <!-- Cyan Headphones -->
+    <!-- Headband -->
+    <rect x="758" y="143" width="16" height="5" fill="#22e6ff" />
+    <rect x="755" y="148" width="4" height="14" fill="#22e6ff" />
+    <!-- Ear Cup -->
+    <rect x="754" y="160" width="9" height="16" fill="#22e6ff" />
+    <rect x="756" y="163" width="5" height="10" fill="#138a99" />
+
+    <!-- Arm Reaching Toward Laptop -->
+    <!-- Upper Sleeve -->
+    <rect x="765" y="196" width="12" height="22" fill="#5b2a86" />
+    <!-- Forearm -->
+    <rect x="774" y="214" width="30" height="11" fill="#7535ad" />
+    <!-- Hand on Keyboard -->
+    <rect x="804" y="222" width="10" height="6" fill="#fcd0a1" />
+  </g>
+
+  <!-- Wooden Desk with Legs -->
+  <g id="pixelDesk">
+    <!-- Legs -->
+    <rect x="768" y="254" width="12" height="66" fill="#502c14" />
+    <rect x="956" y="254" width="12" height="66" fill="#502c14" />
+    <!-- Crossbar -->
+    <rect x="768" y="296" width="200" height="6" fill="#3a1e0b" />
+    <!-- Tabletop -->
+    <rect x="752" y="242" width="224" height="14" fill="#7a421d" />
+    <rect x="752" y="242" width="224" height="4" fill="#9c5627" />
+    <rect x="752" y="253" width="224" height="3" fill="#42220d" />
+  </g>
+
+  <!-- Laptop on Desk -->
+  <g id="pixelLaptop">
+    <!-- Laptop Base / Keyboard -->
+    <rect x="802" y="238" width="56" height="5" fill="#222538" />
+    <rect x="802" y="238" width="56" height="2" fill="#22e6ff" />
+
+    <!-- Screen Back Frame -->
+    <rect x="814" y="188" width="42" height="51" fill="#121324" stroke="#22e6ff" stroke-width="2" />
+    <!-- Screen Display (Dark) -->
+    <rect x="816" y="190" width="38" height="47" fill="#080a1c" />
+
+    <!-- Screen Glow Fan on Character -->
+    <polygon points="814,190 778,172 778,240 814,239" fill="#22e6ff" opacity="0.08" />
+
+    <!-- 3 Animated Colored Code Lines on Screen -->
+    <!-- Line 1: Cyan -->
+    <rect x="820" y="198" height="3" width="18" fill="#22e6ff">
+      <animate attributeName="width" values="14; 28; 18; 30; 14" dur="2.4s" repeatCount="indefinite" />
+    </rect>
+    <!-- Line 2: Violet -->
+    <rect x="820" y="206" height="3" width="22" fill="#c06bff">
+      <animate attributeName="width" values="22; 12; 26; 16; 22" dur="3.1s" repeatCount="indefinite" />
+    </rect>
+    <!-- Line 3: Pink -->
+    <rect x="820" y="214" height="3" width="14" fill="#ff7ad9">
+      <animate attributeName="width" values="10; 24; 16; 22; 10" dur="2.7s" repeatCount="indefinite" />
+    </rect>
+
+    <!-- Blinking Cursor Block on Screen -->
+    <rect x="820" y="222" width="4" height="4" fill="#22e6ff">
+      <animate attributeName="opacity" values="1; 1; 0; 0" keyTimes="0; 0.5; 0.51; 1" dur="0.8s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- Small White Coffee Mug on Desk with Rising Steam -->
+  <g id="pixelCoffeeMug">
+    <!-- Mug Body -->
+    <rect x="886" y="230" width="13" height="13" fill="#ffffff" />
+    <!-- Mug Coffee Rim -->
+    <rect x="888" y="229" width="9" height="2" fill="#4d2600" />
+    <!-- Handle -->
+    <rect x="899" y="232" width="4" height="8" fill="#e2e2ec" />
+    <rect x="900" y="234" width="2" height="4" fill="#7a421d" />
+
+    <!-- Animated Pixel Steam -->
+    <rect x="891" y="223" width="2" height="4" fill="#ffe9a8" opacity="0.8">
+      <animate attributeName="y" values="224; 216; 224" dur="2.2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.8; 0.15; 0.8" dur="2.2s" repeatCount="indefinite" />
+    </rect>
+    <rect x="895" y="220" width="2" height="5" fill="#ffe9a8" opacity="0.6">
+      <animate attributeName="y" values="222; 214; 222" dur="2.6s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.6; 0.1; 0.6" dur="2.6s" repeatCount="indefinite" />
+    </rect>
+  </g>
+</svg>
